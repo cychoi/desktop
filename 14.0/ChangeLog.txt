@@ -6,5 +6,6 @@ ap/recode-3.6-x86_64-2_microlinux.txz: Added.
 ap/unrar-4.0.7-i486-1_microlinux.txz: Added.
 ap/unrar-4.0.7-x86_64-1_microlinux.txz: Added.
 ap/p7zip-9.20.1-i486-1_microlinux.txz: Added.
-ap/hplip-3.12.11-i486-1_microlinux.txz: Added.
+hplip-3.12.11-i486-1_microlinux.txz: Upgraded.
+  Fix for broken 'hp-toolbox' utility.
 +--------------------------+
