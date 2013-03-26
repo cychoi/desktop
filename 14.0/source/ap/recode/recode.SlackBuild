@@ -66,10 +66,10 @@ cd $PRGNAM-$VERSION
 chown -R root:root .
 chmod -R a-s,u+w,go+r-w .
 
-# Some important fixes from debian and ubuntu.
+# Some important fixes from Debian and Ubuntu.
 # We normally don't like this idea, as it puts us maintaining the upstream
 # sources, but in this case, we'll make an exception.
-# I *really* don't like the non-bugfix parts of the debian patch, but I
+# I *really* don't like the non-bugfix parts of the Debian patch, but I
 # guess I'll let it slide  --rworkman
 for patch in $CWD/patches/* ; do
   bzcat $patch | patch -p1 --verbose --backup || exit 1
