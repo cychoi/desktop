@@ -86,7 +86,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --host=$ARCH-slackware-linux \
   --target=$ARCH-slackware-linux
 
-make $NUMJOBS || make || exit 1
+make $NUMJOBS 
 make install DESTDIR=$PKG || exit 1
 
 chown -R root:root .
