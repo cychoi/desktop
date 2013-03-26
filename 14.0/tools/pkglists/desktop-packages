@@ -1,0 +1,88 @@
+# MLED packages
+
+# Package management
+sbopkg
+spkg
+slapt-get
+slapt-src
+
+# Console utilities
+user-settings-console
+recode
+man-pages-fr
+man-pages-extras-fr
+unrar
+p7zip
+
+# Xfce desktop
+gdm
+faenza-icon-theme
+faenza-xfce
+gtk-engines
+clearlooks-phenix
+xfwm4-theme-axe
+aero
+user-settings-desktop
+Terminal
+slack-wallpapers
+
+# Fonts
+webcore-fonts
+adobe-source-code-pro-font
+adobe-source-sans-pro-font
+google-droid-fonts
+eurostile-fonts
+
+# Codecs & plugins
+flash-plugin jdk
+
+# Internet
+mozilla-firefox
+mozilla-firefox-l10n
+user-settings-firefox
+mozilla-thunderbird
+mozilla-thunderbird-l10n
+gajim
+gftp
+transmission
+
+# Bureautique
+openoffice
+openoffice-langpack
+mate-document-viewer
+
+# Graphisme
+gimp
+geeqie
+xfce4-screenshooter
+inkscape
+gcolor2
+simple-scan
+scribus
+
+# Multimédia
+audacious
+audacious-plugins
+smplayer
+audacity
+asunder
+openshot
+dvdrip
+
+# Accessoires
+leafpad
+thunar-archive-plugin
+xarchiver
+xfce4-xkb-plugin
+galculator
+catfish
+gnote
+brasero
+
+# Système & Développement
+conky
+geany
+geany-plugins
+virtualbox
+virtualbox-kernel
+
