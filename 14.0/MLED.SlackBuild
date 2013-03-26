@@ -1,4 +1,5 @@
 #!/bin/sh
+#
 # Copyright (c) 2013 Niki Kovacs <info@microlinux.fr>
 # -----------------------------------------------------------------------------
 #
@@ -6,7 +7,7 @@
 #
 # It puts them in the corresponding package directory. 
 #
-# If the package already exists inthe package directory AND if it's already
+# If the package already exists in the package directory AND if it's already
 # installed, the script skips to the next package.
 #
 # Otherwise it builds and installs the package, until all packages listed in
