@@ -1,8 +1,439 @@
-Microlinux Enterprise Desktop
------------------------------
+=============================
+Microlinux Enterprise Desktop (c) Niki Kovacs <info@microlinux.fr>
+=============================
 
-This repository contains various scripts and configuration files for the
-Slackware-based Microlinux Enterprise Desktop.
+This repository contains everything it needs to build and install the
+Slackware-based Microlinux Enterprise Desktop (MLED).
 
-For more information, visit http://www.microlinux.fr
+  · FAQ
+  · Credits
+  · Installation
+  · First reboot
+  · Further configuration
+
+  · Build MLED from source
+    · NVidia caveat
+    · JDK tarball
+    · Start the build
+    · Add some translations manually
+  
+
+FAQ
+---
+
+Q: What's the Microlinux Enterprise Desktop? 
+
+A: A full-blown production desktop based on Slackware Linux and Xfce.
+
+Q: Who's using this thing?
+
+A: Various small town halls, public libraries and schools in South France.
+
+Q: What is it exactly?
+
+A: Here's some specs.
+
+  · MLED consists of roughly 150 custom packages installed on top of Slackware.
+  · It provides binaries for 32-bit and 64-bit installations.
+  · Full source code is included, so you can build it yourself.
+  · A set of tagfiles for the base Slackware install is also included.
+  · It's not a derivative distro, it's the RealThing(tm).
+  · No changes are made to the base system, except for a few apps.
+  · MLED focuses on the Xfce desktop environment, with many enhancements.
+  · It includes elegant artwork fit for use in a "corporate" environment.
+  · A selection of best-of-the-breed applications are featured, one per task.
+  · Extra codecs, plugins and fonts provide a seamless desktop experience.
+  · Intuitive and user-friendly default settings and menu entries provided.
+  · MLED runs reasonably fast on ten-year-old hardware.
+
+Q: What applications are included?
+
+A: *** Internet apps ***
+
+  · Mozilla Firefox ESR
+  · Mozilla Thunderbird ESR
+  · GFTP
+  · Pidgin
+  · Transmission
+
+  *** Office apps ***
+
+  · Apache Open Office 
+  · Evince
+  · Scribus
+
+  *** Graphics apps ***
+
+  · GIMP
+  · Inkscape
+  · Simple Scan
+  · Geeqie
+  · Gcolor2
+
+  *** Multimedia apps ***
+   
+  · Audacious
+  · SMPlayer
+  · Audacity
+  · Openshot
+  · Asunder
+  · DVD::Rip
+
+  *** Utilities ***
+
+  · Brasero
+  · Galculator
+  · Leafpad
+  · Catfish
+  · Xarchiver
+  · Gnote
+
+  *** Development ***
+
+  · Geany
+
+Q: Do you have any screenshots?
+
+A: Sure. Take a look at http://www.microlinux.fr/desktop_linux.php.
+
+
+Credits
+-------
+
+Much of this work is really just an assembly of the great work that's been done
+before by some excellent folks, and here's the place to give them credit:
+
+  * Robby Workman for his excellent work on Xfce
+  * Eric Hameleers for his "impossible" SlackBuild scripts ;o)
+  * Daniel de Kok, who worked on the initial scripts back in 2006
+  * All the crew from SlackBuilds.org for their really precious work
+  * And of course, Patrick Volkerding for creating the "Finest Linux Anywhere"
+
+
+Installation
+------------
+
+The Microlinux Enterprise Desktop installs on top of a carefully selected
+Slackware base. In order to avoid painstakingly picking each package, the
+recommended method is to use the provided set of tagfiles. 
+
+Grab the set of tagfiles:
+
+  $ wget -r -np -nH --cut-dirs=2 --reject="index.html*" \
+    http://www.microlinux.fr/slackware/14.0/tagfiles/
+
+  -> Don't forget the trailing slash '/'!
+
+Alternatively, you can fetch the tagfiles from SVN:
+
+  $ svn co svn://svn.tuxfamily.org/svnroot/microlinux/slackware/14.0/tagfiles
+
+Here's what you get:
+
+  $ tree tagfiles
+  tagfiles/
+  |-- a
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- ap
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- d
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- e
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- f
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- k
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- kde
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- kdei
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- l
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- n
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- t
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- tcl
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- x
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- xap
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  |-- xfce
+  | |-- PACKAGE_DESCRIPTIONS.txt
+  | `-- tagfile
+  `-- y
+  |-- PACKAGE_DESCRIPTIONS.txt
+  `-- tagfile
+  
+  16 directories, 32 files
+ 
+Copy the 'tagfiles' directory and its contents to a USB memory stick.
+
+Boot from a Slackware installation medium (CD-Rom, DVD, whatever). 
+
+Once you've logged in, and before launching the Slackware installer, create a
+mountpoint for the USB memory stick:
+
+  # mkdir /disk
+
+Mount the device:
+
+  # mount /dev/sdXY /disk
+
+The Slackware installation environment already sports an empty '/tag' directory
+for your tagfiles, so we will copy them to that location:
+
+  # cp -Rv /disk/path/to/tagfiles/* /tag/
+
+Unmount the memory disk:
+
+  # cd
+  # umount /disk
+
+Partition the disk and launch the Slackware installer as in a vanilla
+installation:
+
+  # setup
+ 
+PACKAGE SERIES SELECTION: accept the default package selection, since the
+tagfiles will override this and take care of selecting each package anyway.
+
+SELECT PROMPTING MODE: 'tagpath - Use tagfiles in the subdirectories of a
+custom path'
+
+Path to tagfiles: '/tag'
+
+USE UTF-8 TEXT CONSOLE: 'Yes'
+
+CONFIRM STARTUP SERVICES TO RUN: accept the default selection
+
+SELECT DEFAULT WINDOW MANAGER FOR X : 'xinitrc.xfce' 
+
+  -> This choice is of no consequence, since user profiles already contain the
+  relevant '~/.xinitrc' file.
+
+
+First reboot
+------------
+
+Fetch scripts and configuration files:
+  
+  # cd /usr/share
+  # svn co svn://svn.tuxfamily.org/svnroot/microlinux/slackware
+
+On 32-bit Slackware :
+
+  # cd slackware/14.0/slackware
+
+On Slackware64 :
+
+  # cd slackware/14.0/slackware64
+
+Fetch all Microlinux Enterprise Desktop packages (roughly 500 MB):
+
+  # ./get-MLED.sh
+
+Install all MLED packages in one go:
+
+  # upgradepkg --reinstall --install-new */*.txz
+
+Now you'll probably have to adjust your environment variables in
+'/etc/profile.d/lang.sh'. Default variables are set to fr_FR.UTF8, since MLED's
+main use is in France:
+
+--8<---------- /etc/profile.d/lang.sh ----------------------------------------
+export LANG=fr_FR.utf8
+export LC_COLLATE=fr_FR.utf8
+--8<--------------------------------------------------------------------------
+
+English-speaking Slackware users will use something like this:
+
+--8<---------- /etc/profile.d/lang.sh ----------------------------------------
+export LANG=en_US.utf8
+export LC_COLLATE=en_US.utf8
+--8<--------------------------------------------------------------------------
+
+Reboot.
+
+
+Further configuration
+---------------------
+
+On Slackware64, now's the time to install the 32-bit compatibility layer
+provided by Eric Hameleers : 
+  
+  # cd ../multilib/
+  # get-all.sh
+  # cd 14.0/
+  # upgradepkg --reinstall --install-new *.t?z
+  # cd slackware64-compat32/
+  # upgradepkg --install-new *-compat32/*.t?z
+
+Configure 'slackpkg'. Edit '/etc/slackpkg/mirrors' and choose one and only one
+mirror according to your geographical location, for example:
+
+--8<---------- /etc/slackpkg/mirrors -----------------------------------------
+...
+# FRANCE (FR)
+ftp://mirror.ovh.net/mirrors/ftp.slackware.com/slackware64-14.0/
+...
+--8<--------------------------------------------------------------------------
+
+Now blacklist all packages tagged "microlinux" to prevent them from getting
+squashed by an update:
+
+--8<---------- /etc/slackpkg/blacklist ---------------------------------------
+...
+[0-9]+_microlinux
+--8<--------------------------------------------------------------------------
+
+On Slackware64, you'll also have to blacklist Eric's Multilib packages:
+
+--8<---------- /etc/slackpkg/blacklist ---------------------------------------
+...
+[0-9]+_microlinux
+[0-9]+alien
+--8<--------------------------------------------------------------------------
+
+Now update everything:
+
+  # slackpkg update
+  # slackpkg upgrade-all
+
+Installer the MPlayer plugin from 'extra/':
+
+  # slackpkg install mplayerplug-in
+
+The 'user-settings-desktop' package features - among other things - the
+'cleanmenu' utility, a small Bash script to clean up various desktop menu
+entries and make them Joe-Sixpack-friendly. Run this utility:
+
+  # cleanmenu
+
+Configure the X.org server. 
+
+  -> A note on NVidia cards. I've had some bad freezes with the 'nouveau'
+  drivers on various cards, so I decided not to include these - as well as the
+  legacy 'nv' drivers - in the basic package set. I recommend downloading and
+  building the proprietary 'nvidia' drivers from http://www.nvidia.com. If you
+  don't want to use the 'nvidia' driver, you can still grab the
+  'xf86-video-nouveau' or 'xf86-video-nv' packages using 'slackpkg'.
+
+The Microlinux Enterprise Desktop uses the SLiM login manager. Edit
+'/etc/rc.d/rc.4' to launch SLiM on startup:
+
+--8<---------- /etc/rc.d/rc.4 ------------------------------------------------
+# Tell the viewers what's going to happen...
+echo "Starting up X11 session manager..."
+
+# Try to use SLiM login manager.  This comes first, because if SLiM is 
+# installed, then the user probably wants to use it by default:
+if [ -x /usr/bin/slim ]; then
+  exec /usr/bin/slim
+fi
+...
+--8<--------------------------------------------------------------------------
+
+Define one or more normal users for the system:
+
+  # adduser
+
+Switch to default runlevel 4:
+
+--8<---------- /etc/inittab --------------------------------------------------
+...
+# Default runlevel. (Do not set to 0 or 6)
+id:4:initdefault:
+...
+--8<--------------------------------------------------------------------------
+
+Reboot and enjoy your shiny new Microlinux Enterprise Desktop.
+
+##############################################################################
+
+
+Build MLED from source
+----------------------
+
+Installing MLED from binary packages as described above is the preferred
+method. However, you can build MLED from source if you're inclined to do so.
+Here's a few instructions.
+
+  NVidia caveat
+  -------------
+
+If you have an NVidia card and you are using the proprietary driver, some
+builds like wxGTK, Firefox and Thunderbird will fail. Before launching the
+build, uninstall the proprietary driver: 
+
+  # ./NVIDIA-Linux-x86-304.64.run --uninstall
+ 
+Then, reinstall the 'mesa' package:
+
+  # slackpkg reinstall mesa
+
+  JDK tarball
+  -----------
+
+Before launching the build, go to http://www.oracle.com and download the JDK
+tarball for your architecture:
+
+  * jdk-7uXX-linux-i586.tar.gz for 32-bit Slackware
+  * jdk-7uXX-linux-x64.tar.gz for 64-bit Slackware
+
+Move the tarball to source/d/jdk/.
+
+  Start the build
+  ---------------
+
+Launch the master SlackBuild as root:
+
+# ./MLED.SlackBuild
+
+This master build takes care of: 
+
+  1. downloading all sources;
+
+  2. building packages in the right order;
+
+  3. installing packages as they are built;
+
+  4. storing them in the right location.
+
+Depending on hardware and bandwidth, count a few hours for the whole process to
+complete.
+
+  Add some translations manually
+  ------------------------------
+
+Translations for Open Office are not included in the master build and have to
+be built separately:
+
+  # cd source/locale/openoffice-langpack
+  # ./openoffice-langpack.SlackBuild
+
+This builds the french language pack. The german translation can be built like
+this:
+
+  # OOLANG=de ./openoffice-langpack.SlackBuild
+
+
+------------------------------------------------------------------------------
+# vim: syntax=txt
 
