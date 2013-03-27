@@ -14,7 +14,9 @@ multimedia/libass-0.10.1-x86_64-1_microlinux.txz: Added.
 d/jdk-7u10-i586-1_microlinux.txz: Added.
 d/jdk-7u10-x86_64-1_microlinux.txz: Added.
 multimedia/libbluray-0.2.3-i486-1_microlinux.txz: Added.
+multimedia/libbluray-0.2.3-x86_64-1_microlinux.txz: Added.
 multimedia/libdc1394-2.2.0-i486-1_microlinux.txz: Added.
+multimedia/libdc1394-2.2.0-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Tue Mar 26 08:44:26 CET 2013
 profile/user-settings-console-1.0-noarch-2_microlinux.txz: Added.
