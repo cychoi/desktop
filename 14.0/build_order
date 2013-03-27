@@ -13,6 +13,11 @@ ap/recode
 ap/unrar
 ap/p7zip
 
+###############
+# Development #
+###############
+d/jdk
+
 ##############
 # Multimedia # 
 ##############
@@ -21,6 +26,7 @@ multimedia/celt
 multimedia/libmp4v2
 multimedia/faac
 multimedia/faad2
+multimedia/libass
 #ffmpeg
 #flash-plugin
 #gst-ffmpeg
