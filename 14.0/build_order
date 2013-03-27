@@ -17,6 +17,7 @@ ap/p7zip
 # Development #
 ###############
 d/jdk
+d/orc
 
 ##############
 # Multimedia # 
@@ -33,6 +34,15 @@ multimedia/frei0r
 multimedia/gsm
 multimedia/openjpeg
 multimedia/lame
+multimedia/OpenAL
+multimedia/opencore-amr
+multimedia/rtmpdump
+multimedia/schroedinger
+multimedia/speex
+multimedia/libvpx
+multimedia/x264
+multimedia/xvidcore
+multimedia/ffmpeg
 #ffmpeg
 #flash-plugin
 #gst-ffmpeg
