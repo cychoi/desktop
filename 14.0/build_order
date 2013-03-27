@@ -29,6 +29,10 @@ multimedia/faad2
 multimedia/libass
 multimedia/libbluray
 multimedia/libdc1394
+multimedia/frei0r
+multimedia/gsm
+multimedia/openjpeg
+multimedia/lame
 #ffmpeg
 #flash-plugin
 #gst-ffmpeg
