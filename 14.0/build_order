@@ -27,6 +27,8 @@ multimedia/libmp4v2
 multimedia/faac
 multimedia/faad2
 multimedia/libass
+multimedia/libbluray
+multimedia/libdc1394
 #ffmpeg
 #flash-plugin
 #gst-ffmpeg
