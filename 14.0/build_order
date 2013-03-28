@@ -76,7 +76,10 @@ x/fusion-icon
 # Applications #
 ################
 xap/mozilla-firefox
-locale/mozilla-firefox-l10n
 xap/mozilla-thunderbird
-locale/mozilla-thunderbird-l10n
 
+################
+# Translations #
+################
+locale/mozilla-firefox-l10n
+locale/mozilla-thunderbird-l10n
