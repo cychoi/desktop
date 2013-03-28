@@ -1,13 +1,11 @@
 #######################
 # Shell configuration #
 #######################
-
 profile/user-settings-console
  
 ###################
 # Basic utilities #
 ###################
-
 ap/sbopkg
 ap/recode
 ap/unrar
@@ -48,15 +46,28 @@ multimedia/ffmpeg
 #########
 # Fonts #
 #########
-
 x/google-droid-fonts
 x/webcore-fonts
 x/eurostile-fonts
 
+################
+# Xfce desktop #
+################
+xfce/aero
+xfce/faenza-icon-theme
+xfce/faenza-xfce
+xfce/xfwm4-theme-axe
+
+#xfce/murrine
+#xfce/murrine-themes
+#xfce/slack-wallpapers
+#xfce/xarchiver
+#xfce/thunar-archive-plugin
+#xfce/xfce4-xkb-plugin
+
 ##############
 # 3D Desktop #
 ##############
-
 x/compiz-bcop
 x/protobuf
 x/libcompizconfig
@@ -67,3 +78,4 @@ x/compiz-plugins-extra
 x/emerald
 x/emerald-themes
 x/fusion-icon
+

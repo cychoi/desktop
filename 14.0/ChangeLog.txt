@@ -24,6 +24,10 @@ x/emerald-themes-0.6.0-i486-1_microlinux.txz: Added.
 x/emerald-themes-0.6.0-x86_64-1_microlinux.txz: Added.
 x/fusion-icon-20080213-i486-1_microlinux.txz: Added.
 x/fusion-icon-20080213-x86_64-1_microlinux.txz: Added.
+xfce/aero-1.0-noarch-1_microlinux.txz: Added.
+xfce/faenza-icon-theme-1.3-noarch-1_microlinux.txz: Added.
+xfce/faenza-xfce-0.2.1-noarch-1_microlinux.txz: Added.
+xfce/xfwm4-theme-axe-1.0-noarch-1_microlinux.txz: Added.
 +--------------------------+
 Wed Mar 27 07:07:21 CET 2013
 multimedia/a52dec-0.7.4-i486-1_microlinux.txz: Added.
