@@ -2,8 +2,27 @@
 Microlinux Enterprise Desktop (c) Niki Kovacs <info@microlinux.fr>
 =============================
 
+*** Thu Mar 28 08:42:02 CET 2013: work in progress. I'll keep you posted ***
+
 This repository contains everything it needs to build and install the
 Slackware-based Microlinux Enterprise Desktop (MLED).
+
+The Microlinux Enterprise Desktop is a full-blown production desktop based on
+Slackware Linux and Xfce. It is currently used by various small town halls,
+public libraries and schools in South France. 
+
+MLED is not some derivative distribution. It consists of a collection of 150
+packages installed on top of an unaltered Slackware base system. If focuses on
+the Xfce desktop environment, with many enhancements. 
+
+A selection of best-of-the-breed and carefully integrated applications are
+featured, one per task. Elegant artwork fit for use in a "corporate"
+environment is also included. A complete selection of codecs, plugins and fonts
+provide a seamless desktop experience. Intuitive and user-friendly default
+settings and menu entries are provided. 
+
+MLED runs reasonably fast on ten-year-old hardware. Follow the step-by-step
+installation instructions below to install it on your PC.
 
   · FAQ
   · Credits
