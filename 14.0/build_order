@@ -58,13 +58,6 @@ xfce/faenza-icon-theme
 xfce/faenza-xfce
 xfce/xfwm4-theme-axe
 
-#xfce/murrine
-#xfce/murrine-themes
-#xfce/slack-wallpapers
-#xfce/xarchiver
-#xfce/thunar-archive-plugin
-#xfce/xfce4-xkb-plugin
-
 ##############
 # 3D Desktop #
 ##############
@@ -78,4 +71,9 @@ x/compiz-plugins-extra
 x/emerald
 x/emerald-themes
 x/fusion-icon
+
+################
+# Applications #
+################
+xap/mozilla-firefox
 
