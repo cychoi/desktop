@@ -1,0 +1,205 @@
+#!/bin/sh
+
+# Copyright 2008, 2009, 2010, 2011  Patrick J. Volkerding, Sebeka, Minnesota, USA
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# Thanks to the folks at the Mozilla Foundation for permission to
+# distribute this, and for all the great work!  :-)
+#
+# Modified by Niki Kovacs <info@microlinux.fr>
+
+PRGNAM=mozilla-thunderbird
+VERSION=${VERSION:-10.0.12}
+MOZVERS=${MOZVERS:-esr10}
+RELEASEVER=$(echo $VERSION | cut -f 1 -d r | cut -f 1 -d b)
+BUILD=${BUILD:-1}
+TAG=${TAG:-_microlinux}
+
+NUMJOBS=${NUMJOBS:-" -j4 "}
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/microlinux}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+URL="ftp.mozilla.org/pub/mozilla.org/thunderbird/releases"
+
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) export ARCH=$( uname -m ) ;;
+  esac
+fi
+
+# Try to be gentle to the compiler, no optimizations:
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O -fPIC"
+  LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "arm" ]; then
+  SLKCFLAGS="-O2 -march=armv4 -mtune=xscale"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "armel" ]; then
+  SLKCFLAGS="-O2 -march=armv4t"
+  LIBDIRSUFFIX=""
+fi
+
+set -e 
+
+if [ ! -r thunderbird-${VERSION}esr.source.tar.bz2 ] ; then
+  wget -c --no-check-certificate \
+    https://${URL}/${VERSION}esr/source/thunderbird-${VERSION}esr.source.tar.bz2
+fi
+
+md5sum -c thunderbird-${VERSION}esr.source.tar.bz2.md5
+
+rm -rf $PKG
+mkdir -p $TMP $PKG/usr/lib${LIBDIRSUFFIX}
+
+cd $TMP
+rm -rf comm-$MOZVERS
+tar xvjf $CWD/thunderbird-${VERSION}esr.source.tar.bz2 || exit 1
+cd comm-$MOZVERS || exit 1
+
+# Fix a long standing bug that's prevented staying current on GTK+.
+# Thanks to the BLFS folks.  :-)
+cat << EOF >> mozilla/layout/build/Makefile.in
+
+ifdef MOZ_ENABLE_CANVAS
+EXTRA_DSO_LDOPTS += \$(XLDFLAGS) -lX11 -lXrender
+endif
+
+EOF
+
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+
+# Enable compiling with GCC 4.7.1 - patches from Debian Wheezy Icedove source
+# package
+patch -p1 < $CWD/patches/ftruncate-was-not-declared.patch
+patch -p1 < $CWD/patches/fix-more-gcc-4.7-errors-in-ipc-code.patch
+
+# Mozilla devs enforce using an objdir for building
+# and launching configure with the absolute path
+# https://developer.mozilla.org/en/Configuring_Build_Options#Building_with_an_objdir
+mkdir obj
+cd obj
+export MOZILLA_DIR=$TMP/comm-$MOZVERS/mozilla &&
+export MOZILLA_OFFICIAL="1" &&
+export BUILD_OFFICIAL="1" &&
+export MOZ_PHOENIX="1" &&
+export CFLAGS="$SLKCFLAGS" &&
+export CXXFLAGS="$SLKCFLAGS" &&
+$TMP/comm-$MOZVERS/configure \
+  --enable-official-branding \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --with-default-mozilla-five-home=/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION \
+  --with-system-zlib \
+  --enable-application=mail \
+  --enable-default-toolkit=cairo-gtk2 \
+  --enable-startup-notification \
+  --enable-crypto \
+  --enable-svg \
+  --enable-canvas \
+  --enable-xft \
+  --enable-xinerama \
+  --enable-ldap \
+  --enable-optimize \
+  --enable-reorder \
+  --enable-static \
+  --enable-strip \
+  --enable-cpp-rtti \
+  --enable-single-profile \
+  --disable-accessibility \
+  --disable-debug \
+  --disable-tests \
+  --disable-logging \
+  --disable-pedantic \
+  --disable-installer \
+  --disable-profilesharing
+  # Complains about missing APNG support in Slackware's libpng:
+  #--with-system-png \
+
+#make -f client.mk build MOZ_MAKE_FLAGS="$NUMJOBS" || exit 1
+make MOZ_MAKE_FLAGS="$NUMJOBS" $NUMJOBS || exit 1
+make install DESTDIR=$PKG || exit 1
+
+# Exit obj directory:
+cd ..
+
+# We don't need these (just symlinks anyway):
+rm -rf $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-devel-$VERSION
+
+# Nor these:
+rm -rf $PKG/usr/include
+
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
+mkdir -p $PKG/usr/share/applications
+cat $CWD/mozilla-thunderbird.desktop > $PKG/usr/share/applications/mozilla-thunderbird.desktop
+mkdir -p $PKG/usr/share/pixmaps
+cat $CWD/thunderbird.png > $PKG/usr/share/pixmaps/thunderbird.png
+
+# These files/directories are usually created if Firefox is run as root,
+# which on many systems might (and possibly should) be never.  Therefore, if we
+# don't see them we'll put stubs in place to prevent startup errors.
+( cd $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION
+  if [ -d extensions/talkback\@mozilla.org ]; then
+    if [ ! -r extensions/talkback\@mozilla.org/chrome.manifest ]; then
+      echo > extensions/talkback\@mozilla.org/chrome.manifest
+    fi
+  fi
+  if [ ! -d updates ]; then
+    mkdir -p updates/0
+  fi
+)
+
+# Need some default icons in the right place:
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION/chrome/icons/default
+install -m 644 obj/mozilla/dist/thunderbird/chrome/icons/default/default16.png \
+  $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION/icons/
+install -m 644 obj/mozilla/dist/thunderbird/chrome/icons/default/default16.png \
+  $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION/chrome/icons/default/ 
+
+# Copy over the LICENSE
+install -p -c -m 644 mozilla/LICENSE $PKG/usr/lib${LIBDIRSUFFIX}/thunderbird-$VERSION/
+
+mkdir $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
+
+# Cleanup
+cd $TMP
+rm -rf comm-$MOZVERS $PKG
+
