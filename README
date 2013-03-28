@@ -12,59 +12,32 @@ Slackware Linux and Xfce. It is currently used by various small town halls,
 public libraries and schools in South France. 
 
 MLED is not some derivative distribution. It consists of a collection of 150
-packages installed on top of an unaltered Slackware base system. If focuses on
-the Xfce desktop environment, with many enhancements. 
+custom packages installed on top of an unaltered Slackware base system. If
+focuses on the Xfce desktop environment, with many enhancements. 
 
 A selection of best-of-the-breed and carefully integrated applications are
-featured, one per task. Elegant artwork fit for use in a "corporate"
+featured, one per task. Elegant and sober artwork fit for use in a corporate
 environment is also included. A complete selection of codecs, plugins and fonts
 provide a seamless desktop experience. Intuitive and user-friendly default
 settings and menu entries are provided. 
 
-Follow the step-by-step installation instructions below to install it on your
-PC. MLED runs reasonably fast on ten-year-old hardware. 
+If you want to know what MLED looks like, take a look at the screenshots:
 
+  * http://www.microlinux.fr/desktop_linux.php.
 
-  · FAQ
-  · Credits
-  · Installation
-  · First reboot
-  · Further configuration
+Follow the detailed installation instructions below to install it on your PC.
 
-  · Build MLED from source
-    · NVidia caveat
-    · JDK tarball
-    · Start the build
-    · Add some translations manually
-  
+MLED runs reasonably fast on ten-year-old hardware. 
 
-FAQ
----
+Much of this work is really just an assembly of the great work that's been done
+before by some excellent folks, and here's the place to give them credit:
 
-Q: What's the Microlinux Enterprise Desktop? 
+  * Robby Workman for his excellent work on Xfce
+  * Eric Hameleers for his "impossible" SlackBuild scripts ;o)
+  * Daniel de Kok, who worked on the initial scripts back in 2006
+  * All the crew from SlackBuilds.org for their really precious work
+  * And of course, Patrick Volkerding for creating the "Finest Linux Anywhere"
 
-A: A full-blown production desktop based on Slackware Linux and Xfce.
-
-Q: Who's using this thing?
-
-A: Various small town halls, public libraries and schools in South France.
-
-Q: What is it exactly?
-
-A: Here's some specs.
-
-  · MLED consists of roughly 150 custom packages installed on top of Slackware.
-  · It provides binaries for 32-bit and 64-bit installations.
-  · Full source code is included, so you can build it yourself.
-  · A set of tagfiles for the base Slackware install is also included.
-  · It's not a derivative distro, it's the RealThing(tm).
-  · No changes are made to the base system, except for a few apps.
-  · MLED focuses on the Xfce desktop environment, with many enhancements.
-  · It includes elegant artwork fit for use in a "corporate" environment.
-  · A selection of best-of-the-breed applications are featured, one per task.
-  · Extra codecs, plugins and fonts provide a seamless desktop experience.
-  · Intuitive and user-friendly default settings and menu entries provided.
-  · MLED runs reasonably fast on ten-year-old hardware.
 
 Q: What applications are included?
 
@@ -119,15 +92,6 @@ A: Sure. Take a look at http://www.microlinux.fr/desktop_linux.php.
 
 Credits
 -------
-
-Much of this work is really just an assembly of the great work that's been done
-before by some excellent folks, and here's the place to give them credit:
-
-  * Robby Workman for his excellent work on Xfce
-  * Eric Hameleers for his "impossible" SlackBuild scripts ;o)
-  * Daniel de Kok, who worked on the initial scripts back in 2006
-  * All the crew from SlackBuilds.org for their really precious work
-  * And of course, Patrick Volkerding for creating the "Finest Linux Anywhere"
 
 
 Installation
