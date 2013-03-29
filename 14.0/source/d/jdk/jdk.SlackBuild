@@ -170,4 +170,4 @@ rm -f $TMP/${PKGNAM}-$(echo $VERSION | tr - _)-$ARCH-$BUILD.txz
 
 # Cleanup
 cd $TMP          
-rm -rf $PKG
+rm -rf $PKG 

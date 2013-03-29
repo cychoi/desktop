@@ -18,6 +18,11 @@ d/jdk
 d/orc
 d/distribute
 
+###################
+# GNOME libraries #
+###################
+gnome/libgnomecanvas
+
 ##############
 # Multimedia # 
 ##############
@@ -57,6 +62,14 @@ xfce/aero
 xfce/faenza-icon-theme
 xfce/faenza-xfce
 xfce/xfwm4-theme-axe
+xfce/gtk-engines
+xfce/clearlooks-phenix-theme
+xfce/microlinux-wallpapers
+
+#################
+# Login manager #
+#################
+gnome/gdm
 
 ##############
 # 3D Desktop #
@@ -83,3 +96,8 @@ xap/mozilla-thunderbird
 ################
 locale/mozilla-firefox-l10n
 locale/mozilla-thunderbird-l10n
+
+####################
+# Default settings #
+####################
+profile/user-settings-xfce
