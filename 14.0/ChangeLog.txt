@@ -2,9 +2,13 @@ Fri Mar 29 05:31:41 CET 2013
 xfce/microlinux-wallpapers-1.0-noarch-1_microlinux.txz: Added.
 profile/user-settings-xfce-1.0-noarch-4_microlinux.txz: Added.
 xfce/gtk-engines-2.20.2-i486-2_microlinux.txz: Added.
+xfce/gtk-engines-2.20.2-x86_64-2_microlinux.txz: Added.
+xfce/clearlooks-phenix-theme-2.0.10-noarch-1_microlinux.txz: Added.
 xfce/clearlooks-phenix-theme-2.0.10-noarch-1_microlinux.txz: Added.
 gnome/libgnomecanvas-2.30.3-i486-1_microlinux.txz: Added.
+gnome/libgnomecanvas-2.30.3-x86_64-1_microlinux.txz: Added.
 gnome/gdm-2.20.11-i486-1_microlinux.txz: Added.
+gnome/gdm-2.20.11-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Mar 28 07:08:29 CET 2013
 x/eurostile-fonts-1.0-noarch-1_microlinux.txz: Added.
