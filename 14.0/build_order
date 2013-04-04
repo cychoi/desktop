@@ -88,14 +88,14 @@ x/fusion-icon
 ################
 # Applications #
 ################
-#xap/mozilla-firefox
-#xap/mozilla-thunderbird
+xap/mozilla-firefox
+xap/mozilla-thunderbird
 
 ################
 # Translations #
 ################
-#locale/mozilla-firefox-l10n
-#locale/mozilla-thunderbird-l10n
+locale/mozilla-firefox-l10n
+locale/mozilla-thunderbird-l10n
 
 ####################
 # Default settings #
