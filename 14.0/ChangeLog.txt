@@ -1,3 +1,6 @@
+Fri Apr  5 08:47:07 CEST 2013
+Rebuilt everything up to now in one go.
+Terminal-0.6.1-i486-1_microlinux.txz: Upgraded.
 Fri Mar 29 05:31:41 CET 2013
 xfce/microlinux-wallpapers-1.0-noarch-1_microlinux.txz: Added.
 profile/user-settings-xfce-1.0-noarch-4_microlinux.txz: Added.
