@@ -24,4 +24,5 @@ gnome/gdm-2.20.11-x86_64-1_microlinux.txz: Added.
 profile/user-settings-xfce-1.0-noarch-4_microlinux.txz: Added.
 Terminal-0.6.1-i486-1_microlinux.txz: Upgraded.
 Terminal-0.6.1-x86_64-1_microlinux.txz: Upgraded.
+xap/mozilla-firefox-17.0.5-x86_64-1_microlinux.txz: Added.
 +--------------------------+
