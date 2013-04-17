@@ -11,6 +11,38 @@ ap/recode
 ap/unrar
 ap/p7zip
 
+#########
+# Fonts #
+#########
+x/google-droid-fonts
+x/webcore-fonts
+x/eurostile-fonts
+ 
+################
+# Xfce desktop #
+################
+xfce/aero
+xfce/faenza-icon-theme
+xfce/xfwm4-theme-axe
+xfce/gtk-engines
+xfce/clearlooks-phenix-theme
+xfce/microlinux-wallpapers
+
+###################
+# GNOME libraries #
+###################
+gnome/libgnomecanvas
+
+#################
+# Login manager #
+#################
+gnome/gdm
+
+####################
+# Default settings #
+####################
+profile/user-settings-xfce
+
 ###############
 # Development #
 ###############
@@ -18,10 +50,6 @@ ap/p7zip
 #d/orc
 #d/distribute
 
-###################
-# GNOME libraries #
-###################
-#gnome/libgnomecanvas
 
 ##############
 # Multimedia # 
@@ -47,29 +75,6 @@ ap/p7zip
 #multimedia/x264
 #multimedia/xvidcore
 #multimedia/ffmpeg
-
-#########
-# Fonts #
-#########
-#x/google-droid-fonts
-#x/webcore-fonts
-#x/eurostile-fonts
-
-################
-# Xfce desktop #
-################
-#xfce/aero
-#xfce/faenza-icon-theme
-#xfce/faenza-xfce
-#xfce/xfwm4-theme-axe
-#xfce/gtk-engines
-#xfce/clearlooks-phenix-theme
-#xfce/microlinux-wallpapers
-
-#################
-# Login manager #
-#################
-#gnome/gdm
 
 ##############
 # 3D Desktop #
@@ -97,7 +102,3 @@ ap/p7zip
 #locale/mozilla-firefox-l10n
 #locale/mozilla-thunderbird-l10n
 
-####################
-# Default settings #
-####################
-#profile/user-settings-xfce

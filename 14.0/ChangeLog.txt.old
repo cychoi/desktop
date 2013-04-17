@@ -15,9 +15,6 @@ gnome/gdm-2.20.11-i486-1_microlinux.txz: Added.
 gnome/gdm-2.20.11-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Mar 28 07:08:29 CET 2013
-x/eurostile-fonts-1.0-noarch-1_microlinux.txz: Added.
-x/google-droid-fonts-20100409-noarch-1_microlinux.txz: Added.
-x/webcore-fonts-3.0-noarch-3_microlinux.txz: Added.
 d/distribute-0.6.30-i486-1_microlinux.txz: Added.
 d/distribute-0.6.30-x86_64-1_microlinux.txz: Added.
 x/compiz-bcop-0.8.8-i486-1_microlinux.txz: Added.
@@ -102,13 +99,6 @@ multimedia/ffmpeg-0.11.1-i686_custom-1_microlinux.txz: Added.
 multimedia/ffmpeg-0.11.1-x86_64_custom-1_microlinux.txz: Added.
 +--------------------------+
 Tue Mar 26 08:44:26 CET 2013
-profile/user-settings-console-1.0-noarch-2_microlinux.txz: Added.
-ap/sbopkg-0.36.0-noarch-1_microlinux.txz: Added.
-ap/recode-3.6-i486-2_microlinux.txz: Added.
-ap/recode-3.6-x86_64-2_microlinux.txz: Added.
-ap/unrar-4.0.7-i486-1_microlinux.txz: Added.
-ap/unrar-4.0.7-x86_64-1_microlinux.txz: Added.
-ap/p7zip-9.20.1-i486-1_microlinux.txz: Added.
 hplip-3.12.11-i486-1_microlinux.txz: Upgraded.
 hplip-3.12.11-x86_64-1_microlinux.txz: Upgraded.
   Fix for broken 'hp-toolbox' utility.

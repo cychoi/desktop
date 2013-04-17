@@ -1,11 +1,11 @@
              |-----handy-ruler------------------------------------------------------|
-webcore-fonts: Webcore Fonts (Microsoft's core fonts for the web)
+webcore-fonts: webcore fonts (Microsoft's core fonts for the web)
 webcore-fonts: 
-webcore-fonts: The Webcore Fonts include:
+webcore-fonts: The Webcore Fonts include a collection of Microsoft fonts:
 webcore-fonts: 
-webcore-fonts: 	* Microsoft's core fonts for the web
-webcore-fonts:	* Microsoft Tahoma 
-webcore-fonts:	* Microsoft's fonts for Windows Vista
+webcore-fonts: 	* Core fonts for the Web
+webcore-fonts:	* Fonts for Windows Vista
+webcore-fonts:	* Tahoma 
 webcore-fonts: 
 webcore-fonts: 
 webcore-fonts:

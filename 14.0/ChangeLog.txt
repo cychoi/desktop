@@ -1,4 +1,12 @@
 Wed Apr 17 07:24:57 CEST 2013
 profile/user-settings-console-1.0-noarch-1_microlinux.txz: Added.
 ap/sbopkg-0.36.0-noarch-1_microlinux.txz: Added.
+ap/recode-3.6-i486-2_microlinux.txz: Added.
+ap/recode-3.6-x86_64-2_microlinux.txz: Added.
+ap/unrar-4.0.7-i486-1_microlinux.txz: Added.
+ap/unrar-4.0.7-x86_64-1_microlinux.txz: Added.
+ap/p7zip-9.20.1-i486-1_microlinux.txz: Added.
+x/eurostile-fonts-1.0-noarch-1_microlinux.txz: Added.
+x/google-droid-fonts-20100409-noarch-1_microlinux.txz: Added.
+x/webcore-fonts-3.0-noarch-3_microlinux.txz: Added.
 +--------------------------+
