@@ -14,90 +14,90 @@ ap/p7zip
 ###############
 # Development #
 ###############
-d/jdk
-d/orc
-d/distribute
+#d/jdk
+#d/orc
+#d/distribute
 
 ###################
 # GNOME libraries #
 ###################
-gnome/libgnomecanvas
+#gnome/libgnomecanvas
 
 ##############
 # Multimedia # 
 ##############
-multimedia/a52dec
-multimedia/celt
-multimedia/libmp4v2
-multimedia/faac
-multimedia/faad2
-multimedia/libass
-multimedia/libbluray
-multimedia/libdc1394
-multimedia/frei0r
-multimedia/gsm
-multimedia/openjpeg
-multimedia/lame
-multimedia/OpenAL
-multimedia/opencore-amr
-multimedia/rtmpdump
-multimedia/schroedinger
-multimedia/speex
-multimedia/libvpx
-multimedia/x264
-multimedia/xvidcore
-multimedia/ffmpeg
+#multimedia/a52dec
+#multimedia/celt
+#multimedia/libmp4v2
+#multimedia/faac
+#multimedia/faad2
+#multimedia/libass
+#multimedia/libbluray
+#multimedia/libdc1394
+#multimedia/frei0r
+#multimedia/gsm
+#multimedia/openjpeg
+#multimedia/lame
+#multimedia/OpenAL
+#multimedia/opencore-amr
+#multimedia/rtmpdump
+#multimedia/schroedinger
+#multimedia/speex
+#multimedia/libvpx
+#multimedia/x264
+#multimedia/xvidcore
+#multimedia/ffmpeg
 
 #########
 # Fonts #
 #########
-x/google-droid-fonts
-x/webcore-fonts
-x/eurostile-fonts
+#x/google-droid-fonts
+#x/webcore-fonts
+#x/eurostile-fonts
 
 ################
 # Xfce desktop #
 ################
-xfce/aero
-xfce/faenza-icon-theme
-xfce/faenza-xfce
-xfce/xfwm4-theme-axe
-xfce/gtk-engines
-xfce/clearlooks-phenix-theme
-xfce/microlinux-wallpapers
+#xfce/aero
+#xfce/faenza-icon-theme
+#xfce/faenza-xfce
+#xfce/xfwm4-theme-axe
+#xfce/gtk-engines
+#xfce/clearlooks-phenix-theme
+#xfce/microlinux-wallpapers
 
 #################
 # Login manager #
 #################
-gnome/gdm
+#gnome/gdm
 
 ##############
 # 3D Desktop #
 ##############
-x/compiz-bcop
-x/protobuf
-x/libcompizconfig
-x/compizconfig-python
-x/ccsm
-x/compiz-plugins-main
-x/compiz-plugins-extra
-x/emerald
-x/emerald-themes
-x/fusion-icon
+#x/compiz-bcop
+#x/protobuf
+#x/libcompizconfig
+#x/compizconfig-python
+#x/ccsm
+#x/compiz-plugins-main
+#x/compiz-plugins-extra
+#x/emerald
+#x/emerald-themes
+#x/fusion-icon
 
 ################
 # Applications #
 ################
-xap/mozilla-firefox
-xap/mozilla-thunderbird
+#xap/mozilla-firefox
+#xap/mozilla-thunderbird
 
 ################
 # Translations #
 ################
-locale/mozilla-firefox-l10n
-locale/mozilla-thunderbird-l10n
+#locale/mozilla-firefox-l10n
+#locale/mozilla-thunderbird-l10n
 
 ####################
 # Default settings #
 ####################
-profile/user-settings-xfce
+#profile/user-settings-xfce
