@@ -19,15 +19,14 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-# Thanks to the folks at the Mozilla Foundation for permission to
-# distribute this, and for all the great work!  :-)
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
+# Modified by the slackbuilds.org project
+# Modified again by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=mozilla-firefox
-VERSION=${VERSION:-10.0.12}	 
-MOZVERS=${MOZVERS:-esr10}
+VERSION=${VERSION:-17.0.5}	 
+MOZVERS=${MOZVERS:-esr17}
 RELEASEVER=$(echo $VERSION | cut -f 1 -d r | cut -f 1 -d b)
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}		
@@ -69,6 +68,8 @@ elif [ "$ARCH" = "armel" ]; then
   LIBDIRSUFFIX=""
 fi
 
+export PYTHON=$(which python)
+
 set -e 
 
 if [ ! -r firefox-${VERSION}esr.source.tar.bz2 ] ; then
@@ -83,12 +84,17 @@ mkdir -p $TMP $PKG/usr/lib${LIBDIRSUFFIX}
 
 cd $TMP
 rm -rf mozilla-$MOZVERS
-tar xvjf $CWD/firefox-${VERSION}esr.source.tar.bz2 || exit 1
-
-cd mozilla-$MOZVERS || exit 1
+tar xvf $CWD/firefox-${VERSION}esr.source.tar.bz2
+cd mozilla-$MOZVERS
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
 
 # Fix a long standing bug that's prevented staying current on GTK+.
-#Thanks to the BLFS folks.  :-)
+# Thanks to the BLFS folks.  :-)
 cat << EOF >> layout/build/Makefile.in
 
 ifdef MOZ_ENABLE_CANVAS
@@ -97,34 +103,12 @@ endif
 
 EOF
 
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
-
-# Enable compiling with GCC 4.7.1 - patches from Debian Wheezy Iceweasel source
-# package
-patch -p1 < $CWD/patches/ftruncate-was-not-declared.patch
-patch -p1 < $CWD/patches/build-failures-missing-headers.patch
-
-# Mozilla devs enforce using an objdir for building
-# and launching configure with the absolute path
-# https://developer.mozilla.org/en/Configuring_Build_Options#Building_with_an_objdir
-mkdir obj
-cd obj
-export MOZILLA_OFFICIAL="1" &&
-export BUILD_OFFICIAL="1" &&
-export MOZ_PHOENIX="1" &&
-export CFLAGS="$SLKCFLAGS" &&
-export CXXFLAGS="$SLKCFLAGS" &&
-export MOZ_MAKE_FLAGS="$NUMJOBS" &&
-$TMP/mozilla-$MOZVERS/configure \
+# Our building options, in a configure-like display
+OPTIONS="\
   --enable-official-branding \
   --prefix=/usr \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --with-default-mozilla-five-home=/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER \
+  --libdir=/usr/lib$LIBDIRSUFFIX \
+  --with-default-mozilla-five-home=/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER \
   --with-system-zlib \
   --enable-application=browser \
   --enable-default-toolkit=cairo-gtk2 \
@@ -141,6 +125,7 @@ $TMP/mozilla-$MOZVERS/configure \
   --enable-strip \
   --enable-cpp-rtti \
   --enable-single-profile \
+  --disable-gnomevfs \
   --disable-ldap \
   --disable-accessibility \
   --disable-crashreporter \
@@ -150,51 +135,48 @@ $TMP/mozilla-$MOZVERS/configure \
   --disable-installer \
   --disable-mailnews \
   --disable-composer \
-  --disable-profilesharing
-  # Complains about missing APNG support in Slackware's libpng:
-  #--with-system-png \
-
+  --disable-profilesharing"
+# Complains about missing APNG support in Slackware's libpng:
+# --with-system-png \
 # This option breaks mozilla-12.0:
 # --enable-system-cairo \
-#
 
-#make -f client.mk build MOZ_MAKE_FLAGS="$NUMJOBS" || exit 1
-make MOZ_MAKE_FLAGS="$NUMJOBS" $NUMJOBS || exit 1
-make install DESTDIR=$PKG || exit 1
+# Mozilla devs enforce using an objdir for building
+# and launching configure with the absolute path
+# https://developer.mozilla.org/en/Configuring_Build_Options#Building_with_an_objdir
+mkdir obj
+export MOZILLA_OFFICIAL="1"
+export BUILD_OFFICIAL="1"
+export MOZ_PHOENIX="1"
+export CFLAGS="$SLKCFLAGS"
+export CXXFLAGS="$SLKCFLAGS"
+export MOZ_MAKE_FLAGS="$MAKEFLAGS"
+unset DBUS_SESSION_BUS_ADDRESS ORBIT_SOCKETDIR SESSION_MANAGER \
+  XDG_SESSION_COOKIE XAUTHORITY MAKEFLAGS
 
-# Exit obj directory:
-cd ..
+# Assemble our .mozconfig, we use this method for building, seems
+# needed for PGO.
+echo ". \$topsrcdir/browser/config/mozconfig" > .mozconfig
+echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+for option in $OPTIONS; do echo "ac_add_options $option" >> .mozconfig; done
+
+make -f client.mk build
+make -f client.mk install DESTDIR=$PKG
 
 # We don't need these (just symlinks anyway):
-rm -rf $PKG/usr/lib${LIBDIRSUFFIX}/firefox-devel-$RELEASEVER
+rm -rf $PKG/usr/lib$LIBDIRSUFFIX/firefox-devel-$RELEASEVER
 
 # Nor these:
 rm -rf $PKG/usr/include
 
-( cd $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER
-  #mv defaults/profile/mimeTypes.rdf defaults/profile/mimeTypes.rdf.orig || exit 1
-  if [ -d defaults/profile ]; then
-    zcat $CWD/mimeTypes.rdf > defaults/profile/mimeTypes.rdf || exit 1
-  fi
-  # OK, this patch is useless on 7.x.  We'll float without it and see what happens.
-  # Perhaps it won't make a difference or should be worked around elsewhere.
-  #zcat $CWD/firefox.moz_plugin_path.diff.gz \
-  #  | sed -e "s#usr/lib#usr/lib${LIBDIRSUFFIX}#g" \
-  #  | patch -p1 --verbose --backup --suffix=.orig || exit 1
-  # Clean up if the above patch was successful:
-  #rm -f firefox.orig
-) || exit
-
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
+mkdir -p $PKG/usr/lib$LIBDIRSUFFIX/mozilla/plugins
 mkdir -p $PKG/usr/share/applications
 cat $CWD/mozilla-firefox.desktop > $PKG/usr/share/applications/mozilla-firefox.desktop
-mkdir -p $PKG/usr/share/pixmaps
-cat $CWD/firefox.png > $PKG/usr/share/pixmaps/firefox.png
 
 # These files/directories are usually created if Firefox is run as root,
 # which on many systems might (and possibly should) be never.  Therefore, if we
 # don't see them we'll put stubs in place to prevent startup errors.
-( cd $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER
+( cd $PKG/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER
   if [ -d extensions/talkback\@mozilla.org ]; then
     if [ ! -r extensions/talkback\@mozilla.org/chrome.manifest ]; then
       echo > extensions/talkback\@mozilla.org/chrome.manifest
@@ -206,17 +188,22 @@ cat $CWD/firefox.png > $PKG/usr/share/pixmaps/firefox.png
 )
 
 # Need some default icons in the right place:
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER/chrome/icons/default
+for i in 16 22 24 32 48 256; do
+  install -m 0644 -D browser/branding/official/default${i}.png \
+    $PKG/usr/share/icons/hicolor/${i}x${i}/apps/firefox.png
+done
+mkdir -p $PKG/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER/chrome/icons/default
 install -m 644 browser/branding/official/default16.png \
-  $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER/icons/
+  $PKG/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER/icons/
 install -m 644 browser/branding/official/default16.png \
-  $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER/chrome/icons/default/ 
+  $PKG/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER/chrome/icons/default/ 
 
 # Copy over the LICENSE
-install -p -c -m 644 LICENSE $PKG/usr/lib${LIBDIRSUFFIX}/firefox-$RELEASEVER/
+install -p -c -m 644 LICENSE $PKG/usr/lib$LIBDIRSUFFIX/firefox-$RELEASEVER/
 
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
@@ -224,4 +211,3 @@ cd $PKG
 # Cleanup
 cd $TMP
 rm -rf mozilla-$MOZVERS $PKG
-

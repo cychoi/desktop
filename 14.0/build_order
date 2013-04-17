@@ -43,6 +43,13 @@ gnome/gdm
 ####################
 profile/user-settings-xfce
 
+################
+# Applications #
+################
+xap/mozilla-firefox
+#xap/mozilla-thunderbird
+
+
 ###############
 # Development #
 ###############
@@ -89,12 +96,6 @@ profile/user-settings-xfce
 #x/emerald
 #x/emerald-themes
 #x/fusion-icon
-
-################
-# Applications #
-################
-#xap/mozilla-firefox
-#xap/mozilla-thunderbird
 
 ################
 # Translations #
