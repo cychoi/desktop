@@ -1,9 +1,12 @@
 Thu Apr 18 10:03:23 CEST 2013
 xap/mozilla-firefox-17.0.5-i486-1_microlinux.txz: Added.
-locale/mozilla-firefox-l10n-17.0.5-i486-1_microlinux.txz
 xap/mozilla-firefox-17.0.5-x86_64-1_microlinux.txz: Added.
-xap/mozilla-thunderbird-17.0.5-i486-1_microlinux.txz
-locale/mozilla-thunderbird-l10n-17.0.5-i486-1_microlinux.txz
+locale/mozilla-firefox-l10n-17.0.5-i486-1_microlinux.txz: Added.
+locale/mozilla-firefox-l10n-17.0.5-x86_64-1_microlinux.txz: Added.
+xap/mozilla-thunderbird-17.0.5-i486-1_microlinux.txz: Added.
+xap/mozilla-thunderbird-17.0.5-x86_64-1_microlinux.txz: Added.
+locale/mozilla-thunderbird-l10n-17.0.5-i486-1_microlinux.txz: Added.
+locale/mozilla-thunderbird-l10n-17.0.5-x86_64-1_microlinux.txz: Added.
 xap/openoffice-3.4.1_en_US-i586-1_microlinux.txz: Added.
 locale/openoffice-langpack-3.4.1_fr-i486-1_microlinux.txz: Added.
 +--------------------------+
