@@ -47,8 +47,15 @@ profile/user-settings-xfce
 # Applications #
 ################
 xap/mozilla-firefox
-#xap/mozilla-thunderbird
+xap/mozilla-thunderbird
+xap/openoffice
 
+################
+# Translations #
+################
+locale/mozilla-firefox-l10n
+locale/mozilla-thunderbird-l10n
+locale/openoffice-langpack
 
 ###############
 # Development #
@@ -97,9 +104,4 @@ xap/mozilla-firefox
 #x/emerald-themes
 #x/fusion-icon
 
-################
-# Translations #
-################
-#locale/mozilla-firefox-l10n
-#locale/mozilla-thunderbird-l10n
 
