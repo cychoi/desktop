@@ -85,9 +85,13 @@ multimedia/gst-ffmpeg-0.10.13-x86_64-1_microlinux.txz: Added.
 multimedia/mplayer-codecs-20071007-i486-3_microlinux.txz: Added.
 multimedia/mplayer-codecs-20071007-x86_64-3_microlinux.txz: Added.
 xap/MPlayer-1.1-i486-1_microlinux.txz: Added.
+xap/MPlayer-1.1-x86_64-1_microlinux.txz: Added.
 xap/smplayer-0.8.4-i486-1_microlinux.txz: Added.
+xap/smplayer-0.8.4-x86_64-1_microlinux.txz: Added.
 xap/audacious-3.2.4-i486-1_microlinux.txz: Added.
+xap/audacious-3.2.4-x86_64-1_microlinux.txz: Added.
 xap/audacious-plugins-3.2.4-i486-1_microlinux.txz: Added.
+xap/audacious-plugins-3.2.4-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Apr 18 10:03:23 CEST 2013
 xap/mozilla-firefox-17.0.5-i486-1_microlinux.txz: Added.
