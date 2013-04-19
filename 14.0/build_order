@@ -90,18 +90,5 @@ locale/openoffice-langpack
 #multimedia/xvidcore
 #multimedia/ffmpeg
 
-##############
-# 3D Desktop #
-##############
-#x/compiz-bcop
-#x/protobuf
-#x/libcompizconfig
-#x/compizconfig-python
-#x/ccsm
-#x/compiz-plugins-main
-#x/compiz-plugins-extra
-#x/emerald
-#x/emerald-themes
-#x/fusion-icon
 
 
