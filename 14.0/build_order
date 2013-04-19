@@ -43,20 +43,6 @@ gnome/gdm
 ####################
 profile/user-settings-xfce
 
-################
-# Applications #
-################
-xap/mozilla-firefox
-xap/mozilla-thunderbird
-xap/openoffice
-
-################
-# Translations #
-################
-locale/mozilla-firefox-l10n
-locale/mozilla-thunderbird-l10n
-locale/openoffice-langpack
-
 ###############
 # Development #
 ###############
@@ -107,6 +93,19 @@ multimedia/gst-plugins-ugly
 multimedia/gst-ffmpeg
 multimedia/mplayer-codecs
 
+################
+# Applications #
+################
+xap/mozilla-firefox
+xap/mozilla-thunderbird
+xap/openoffice
+xap/MPlayer
+xap/smplayer
 
-
+################
+# Translations #
+################
+locale/mozilla-firefox-l10n
+locale/mozilla-thunderbird-l10n
+locale/openoffice-langpack
 
