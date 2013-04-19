@@ -83,7 +83,4 @@ multimedia/ffmpeg-0.11.1-i686_custom-1_microlinux.txz: Added.
 multimedia/ffmpeg-0.11.1-x86_64_custom-1_microlinux.txz: Added.
 +--------------------------+
 Tue Mar 26 08:44:26 CET 2013
-hplip-3.12.11-i486-1_microlinux.txz: Upgraded.
-hplip-3.12.11-x86_64-1_microlinux.txz: Upgraded.
-  Fix for broken 'hp-toolbox' utility.
 +--------------------------+

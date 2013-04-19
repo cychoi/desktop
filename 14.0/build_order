@@ -60,7 +60,7 @@ locale/openoffice-langpack
 ###############
 # Development #
 ###############
-#d/jdk
+d/jdk
 #d/orc
 #d/distribute
 
