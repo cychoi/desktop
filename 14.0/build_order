@@ -88,6 +88,25 @@ multimedia/libvpx
 multimedia/x264
 multimedia/xvidcore
 multimedia/ffmpeg
+multimedia/dirac
+multimedia/libdca
+multimedia/twolame
+multimedia/libdv
+multimedia/libmusicbrainz
+multimedia/libmusicbrainz3
+multimedia/libmpcdec
+multimedia/libmpeg2
+multimedia/libdvdcss
+multimedia/live555
+multimedia/mjpegtools
+multimedia/libquicktime
+multimedia/vcdimager
+multimedia/transcode
+multimedia/gst-plugins-bad
+multimedia/gst-plugins-ugly
+multimedia/gst-ffmpeg
+multimedia/mplayer-codecs
+
 
 
 
