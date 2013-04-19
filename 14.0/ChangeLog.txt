@@ -1,7 +1,9 @@
 Fri Apr 19 07:40:45 CEST 2013
-hplip-3.12.11-i486-1_microlinux.txz: Upgraded.
-hplip-3.12.11-x86_64-1_microlinux.txz: Upgraded.
+ap/hplip-3.12.11-i486-1_microlinux.txz: Upgraded.
+ap/hplip-3.12.11-x86_64-1_microlinux.txz: Upgraded.
   Fix for broken 'hp-toolbox' utility.
+d/jdk-7u10-i586-1_microlinux.txz: Added.
+d/jdk-7u10-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Thu Apr 18 10:03:23 CEST 2013
 xap/mozilla-firefox-17.0.5-i486-1_microlinux.txz: Added.
@@ -39,6 +41,6 @@ gnome/libgnomecanvas-2.30.3-x86_64-1_microlinux.txz: Added.
 gnome/gdm-2.20.11-i486-1_microlinux.txz: Added.
 gnome/gdm-2.20.11-x86_64-1_microlinux.txz: Added.
 profile/user-settings-xfce-1.0-noarch-4_microlinux.txz: Added.
-Terminal-0.6.1-i486-1_microlinux.txz: Upgraded.
-Terminal-0.6.1-x86_64-1_microlinux.txz: Upgraded.
+xfce/Terminal-0.6.1-i486-1_microlinux.txz: Upgraded.
+xfce/Terminal-0.6.1-x86_64-1_microlinux.txz: Upgraded.
 +--------------------------+

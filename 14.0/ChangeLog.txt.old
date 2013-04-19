@@ -5,34 +5,6 @@ Fri Mar 29 05:31:41 CET 2013
 Thu Mar 28 07:08:29 CET 2013
 d/distribute-0.6.30-i486-1_microlinux.txz: Added.
 d/distribute-0.6.30-x86_64-1_microlinux.txz: Added.
-x/compiz-bcop-0.8.8-i486-1_microlinux.txz: Added.
-x/compiz-bcop-0.8.8-x86_64-1_microlinux.txz: Added.
-x/protobuf-2.4.1-i486-2_microlinux.txz: Added.
-x/protobuf-2.4.1-x86_64-2_microlinux.txz: Added.
-x/libcompizconfig-0.8.8-i486-1_microlinux.txz: Added.
-x/libcompizconfig-0.8.8-x86_64-1_microlinux.txz: Added.
-x/compizconfig-python-0.8.4-i486-1_microlinux.txz: Added.
-x/compizconfig-python-0.8.4-x86_64-1_microlinux.txz: Added.
-x/ccsm-0.8.4-i486-1_microlinux.txz: Added.
-x/ccsm-0.8.4-x86_64-1_microlinux.txz: Added.
-x/compiz-plugins-main-0.8.8-i486-1_microlinux.txz: Added.
-x/compiz-plugins-main-0.8.8-x86_64-1_microlinux.txz: Added.
-x/compiz-plugins-extra-0.8.8-i486-2_microlinux.txz: Added.
-x/compiz-plugins-extra-0.8.8-x86_64-2_microlinux.txz: Added.
-x/emerald-0.8.8-i486-3_microlinux.txz: Added.
-x/emerald-0.8.8-x86_64-3_microlinux.txz: Added.
-x/emerald-themes-0.6.0-i486-1_microlinux.txz: Added.
-x/emerald-themes-0.6.0-x86_64-1_microlinux.txz: Added.
-x/fusion-icon-20080213-i486-1_microlinux.txz: Added.
-x/fusion-icon-20080213-x86_64-1_microlinux.txz: Added.
-xap/mozilla-firefox-10.0.12-i486-1_microlinux.txz: Added.
-xap/mozilla-firefox-10.0.12-x86_64-1_microlinux.txz: Added.
-xap/mozilla-thunderbird-10.0.12-i486-1_microlinux.txz: Added.
-xap/mozilla-thunderbird-10.0.12-x86_64-1_microlinux.txz: Added.
-locale/mozilla-firefox-l10n-10.0.12-i486-1_microlinux.txz: Added.
-locale/mozilla-firefox-l10n-10.0.12-x86_64-1_microlinux.txz: Added.
-locale/mozilla-thunderbird-l10n-10.0.12-i486-1_microlinux.txz: Added.
-locale/mozilla-thunderbird-l10n-10.0.12-x86_64-1_microlinux.txz: Added.
 +--------------------------+
 Wed Mar 27 07:07:21 CET 2013
 multimedia/a52dec-0.7.4-i486-1_microlinux.txz: Added.
@@ -47,8 +19,6 @@ multimedia/faad2-2.7-i486-1_microlinux.txz: Added.
 multimedia/faad2-2.7-x86_64-1_microlinux.txz: Added.
 multimedia/libass-0.10.1-i486-1_microlinux.txz: Added.
 multimedia/libass-0.10.1-x86_64-1_microlinux.txz: Added.
-d/jdk-7u10-i586-1_microlinux.txz: Added.
-d/jdk-7u10-x86_64-1_microlinux.txz: Added.
 multimedia/libbluray-0.2.3-i486-1_microlinux.txz: Added.
 multimedia/libbluray-0.2.3-x86_64-1_microlinux.txz: Added.
 multimedia/libdc1394-2.2.0-i486-1_microlinux.txz: Added.

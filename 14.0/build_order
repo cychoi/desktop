@@ -61,34 +61,33 @@ locale/openoffice-langpack
 # Development #
 ###############
 d/jdk
-#d/orc
-#d/distribute
-
+d/orc
+d/distribute
 
 ##############
 # Multimedia # 
 ##############
-#multimedia/a52dec
-#multimedia/celt
-#multimedia/libmp4v2
-#multimedia/faac
-#multimedia/faad2
-#multimedia/libass
-#multimedia/libbluray
-#multimedia/libdc1394
-#multimedia/frei0r
-#multimedia/gsm
-#multimedia/openjpeg
-#multimedia/lame
-#multimedia/OpenAL
-#multimedia/opencore-amr
-#multimedia/rtmpdump
-#multimedia/schroedinger
-#multimedia/speex
-#multimedia/libvpx
-#multimedia/x264
-#multimedia/xvidcore
-#multimedia/ffmpeg
+multimedia/a52dec
+multimedia/celt
+multimedia/libmp4v2
+multimedia/faac
+multimedia/faad2
+multimedia/libass
+multimedia/libbluray
+multimedia/libdc1394
+multimedia/frei0r
+multimedia/gsm
+multimedia/openjpeg
+multimedia/lame
+multimedia/OpenAL
+multimedia/opencore-amr
+multimedia/rtmpdump
+multimedia/schroedinger
+multimedia/speex
+multimedia/libvpx
+multimedia/x264
+multimedia/xvidcore
+multimedia/ffmpeg
 
 
 
