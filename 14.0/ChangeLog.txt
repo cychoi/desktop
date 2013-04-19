@@ -49,23 +49,41 @@ multimedia/xvidcore-1.3.2-x86_64-1_microlinux.txz: Added.
 multimedia/ffmpeg-0.11.1-i686_custom-1_microlinux.txz: Added.
 multimedia/ffmpeg-0.11.1-x86_64_custom-1_microlinux.txz: Added.
 multimedia/dirac-1.0.2-i486-1_microlinux.txz: Added.
+multimedia/dirac-1.0.2-x86_64-1_microlinux.txz: Added.
 multimedia/libdca-0.0.5-i486-1_microlinux.txz: Added.
+multimedia/libdca-0.0.5-x86_64-1_microlinux.txz: Added.
 multimedia/twolame-0.3.13-i486-1_microlinux.txz: Added.
+multimedia/twolame-0.3.13-x86_64-1_microlinux.txz: Added.
 multimedia/libdv-1.0.0-i486-1_microlinux.txz: Added.
-multimedia/libmusicbrainz-2.1.5-i486-1_microlinux.txz
-multimedia/libmusicbrainz3-3.0.3-i486-1_microlinux.txz
-multimedia/libmpcdec-1.2.6-i486-1_microlinux.txz
-multimedia/libmpeg2-0.5.1-i486-1_microlinux.txz
-multimedia/libdvdcss-1.2.11-i486-1_microlinux.txz
-multimedia/live555-2011.12.23-i486-1_microlinux.txz
-multimedia/mjpegtools-2.0.0-i486-1_microlinux.txz
-multimedia/libquicktime-1.2.4-i486-1_microlinux.txz
-multimedia/vcdimager-0.7.23-i486-1_microlinux.txz
-multimedia/transcode-1.1.7-i486-1_microlinux.txz
-multimedia/gst-plugins-bad-0.10.23-i486-1_microlinux.txz
-multimedia/gst-plugins-ugly-0.10.19-i486-1_microlinux.txz
-multimedia/gst-ffmpeg-0.10.13-i486-1_microlinux.txz
-multimedia/mplayer-codecs-20071007-i486-3_microlinux.txz
+multimedia/libdv-1.0.0-x86_64-1_microlinux.txz: Added.
+multimedia/libmusicbrainz-2.1.5-i486-1_microlinux.txz: Added.
+multimedia/libmusicbrainz-2.1.5-x86_64-1_microlinux.txz: Added.
+multimedia/libmusicbrainz3-3.0.3-i486-1_microlinux.txz: Added.
+multimedia/libmusicbrainz3-3.0.3-x86_64-1_microlinux.txz: Added.
+multimedia/libmpcdec-1.2.6-i486-1_microlinux.txz: Added.
+multimedia/libmpcdec-1.2.6-x86_64-1_microlinux.txz: Added.
+multimedia/libmpeg2-0.5.1-i486-1_microlinux.txz: Added.
+multimedia/libmpeg2-0.5.1-x86_64-1_microlinux.txz: Added.
+multimedia/libdvdcss-1.2.11-i486-1_microlinux.txz: Added.
+multimedia/libdvdcss-1.2.11-x86_64-1_microlinux.txz: Added.
+multimedia/live555-2011.12.23-i486-1_microlinux.txz: Added.
+multimedia/live555-2011.12.23-x86_64-1_microlinux.txz: Added.
+multimedia/mjpegtools-2.0.0-i486-1_microlinux.txz: Added.
+multimedia/mjpegtools-2.0.0-x86_64-1_microlinux.txz: Added.
+multimedia/libquicktime-1.2.4-i486-1_microlinux.txz: Added.
+multimedia/libquicktime-1.2.4-x86_64-1_microlinux.txz: Added.
+multimedia/vcdimager-0.7.23-i486-1_microlinux.txz: Added.
+multimedia/vcdimager-0.7.23-x86_64-1_microlinux.txz: Added.
+multimedia/transcode-1.1.7-i486-1_microlinux.txz: Added.
+multimedia/transcode-1.1.7-x86_64-1_microlinux.txz: Added.
+multimedia/gst-plugins-bad-0.10.23-i486-1_microlinux.txz: Added.
+multimedia/gst-plugins-bad-0.10.23-x86_64-1_microlinux.txz: Added.
+multimedia/gst-plugins-ugly-0.10.19-i486-1_microlinux.txz: Added.
+multimedia/gst-plugins-ugly-0.10.19-x86_64-1_microlinux.txz: Added.
+multimedia/gst-ffmpeg-0.10.13-i486-1_microlinux.txz: Added.
+multimedia/gst-ffmpeg-0.10.13-x86_64-1_microlinux.txz: Added.
+multimedia/mplayer-codecs-20071007-i486-3_microlinux.txz: Added.
+multimedia/mplayer-codecs-20071007-x86_64-3_microlinux.txz: Added.
 +--------------------------+
 Thu Apr 18 10:03:23 CEST 2013
 xap/mozilla-firefox-17.0.5-i486-1_microlinux.txz: Added.
