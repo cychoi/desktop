@@ -101,6 +101,8 @@ xap/mozilla-thunderbird
 xap/openoffice
 xap/MPlayer
 xap/smplayer
+xap/audacious
+xap/audacious-plugins
 
 ################
 # Translations #
