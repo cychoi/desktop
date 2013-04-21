@@ -22,7 +22,7 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 # Modified by the slackbuilds.org project
-# Modified again by Niki Kovacs <info@microlinux.fr>
+# Further modifications by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=mozilla-firefox
 VERSION=${VERSION:-17.0.5}	 

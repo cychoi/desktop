@@ -11,7 +11,7 @@
 # Updating and testing for Slackware 13 (including x86_64 and Multilib)
 # by Chris Abela <kristofru@gmail.com>
 #
-# Modified by Niki Kovacs <info@microlinux.fr>
+# Further modifications by Niki Kovacs <info@microlinux.fr>
 
 PRGNAM=recode
 VERSION=3.6

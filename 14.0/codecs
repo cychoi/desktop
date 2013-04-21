@@ -1,18 +1,12 @@
 Codecs
 ------
 
-a52dec
-celt
-faac
-faad2
-ffmpeg
 gst-ffmpeg
 gst-plugins-bad
 gst-plugins-good
 gst-plugins-ugly
 gst-python
 lame
-libass
 libavc1394
 libcdaudio
 libcuefile

@@ -3,13 +3,38 @@
 #######################
 profile/user-settings-console
  
-###################
-# Basic utilities #
-###################
+######################
+# Basic system tools #
+######################
 ap/sbopkg
 ap/recode
 ap/unrar
 ap/p7zip
+
+####################
+# System libraries #
+####################
+# Optional: recode
+l/enca
+
+##############
+# Multimedia # 
+##############
+multimedia/a52dec
+multimedia/celt
+multimedia/libmp4v2
+multimedia/faad2
+multimedia/libbluray
+multimedia/libdc1394
+multimedia/frei0r
+# Optional: enca
+multimedia/libass
+# Required: libmp4v2
+multimedia/faac
+# Optional: libass, libbluray, celt, libdc1394, faac, frei0r, gsm, openjpeg,
+# lame, OpenAL, opencore-amr, rtmpdump, schroedinger, speex, libvpx, x264,
+# xvidcore
+#multimedia/ffmpeg
 
 #########
 # Fonts #
@@ -17,7 +42,7 @@ ap/p7zip
 x/google-droid-fonts
 x/webcore-fonts
 x/eurostile-fonts
- 
+
 ################
 # Xfce desktop #
 ################
@@ -28,86 +53,7 @@ xfce/gtk-engines
 xfce/clearlooks-phenix-theme
 xfce/microlinux-wallpapers
 
-###################
-# GNOME libraries #
-###################
-gnome/libgnomecanvas
-
-#################
-# Login manager #
-#################
-gnome/gdm
-
-####################
-# Default settings #
-####################
-profile/user-settings-xfce
-
-###############
-# Development #
-###############
-d/jdk
-d/orc
-d/distribute
-
-##############
-# Multimedia # 
-##############
-multimedia/a52dec
-multimedia/celt
-multimedia/libmp4v2
-multimedia/faac
-multimedia/faad2
-multimedia/libass
-multimedia/libbluray
-multimedia/libdc1394
-multimedia/frei0r
-multimedia/gsm
-multimedia/openjpeg
-multimedia/lame
-multimedia/OpenAL
-multimedia/opencore-amr
-multimedia/rtmpdump
-multimedia/schroedinger
-multimedia/speex
-multimedia/libvpx
-multimedia/x264
-multimedia/xvidcore
-multimedia/ffmpeg
-multimedia/dirac
-multimedia/libdca
-multimedia/twolame
-multimedia/libdv
-multimedia/libmusicbrainz
-multimedia/libmusicbrainz3
-multimedia/libmpcdec
-multimedia/libmpeg2
-multimedia/libdvdcss
-multimedia/live555
-multimedia/mjpegtools
-multimedia/libquicktime
-multimedia/vcdimager
-multimedia/transcode
-multimedia/gst-plugins-bad
-multimedia/gst-plugins-ugly
-multimedia/gst-ffmpeg
-multimedia/mplayer-codecs
-
 ################
 # Applications #
 ################
 xap/mozilla-firefox
-xap/mozilla-thunderbird
-xap/openoffice
-xap/MPlayer
-xap/smplayer
-xap/audacious
-xap/audacious-plugins
-
-################
-# Translations #
-################
-locale/mozilla-firefox-l10n
-locale/mozilla-thunderbird-l10n
-locale/openoffice-langpack
-
