@@ -17,6 +17,11 @@ ap/p7zip
 # Optional: recode
 l/enca
 
+###############
+# Development #
+###############
+d/orc
+
 ##############
 # Multimedia # 
 ##############
@@ -27,6 +32,20 @@ multimedia/faad2
 multimedia/libbluray
 multimedia/libdc1394
 multimedia/frei0r
+multimedia/gsm
+multimedia/openjpeg
+multimedia/lame
+multimedia/OpenAL
+multimedia/opencore-amr
+multimedia/rtmpdump
+multimedia/speex
+multimedia/libvpx
+multimedia/x264
+multimedia/xvidcore
+multimedia/libdca
+multimedia/dirac
+# Required: orc
+multimedia/schroedinger
 # Optional: enca
 multimedia/libass
 # Required: libmp4v2
