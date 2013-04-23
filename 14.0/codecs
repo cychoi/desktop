@@ -11,11 +11,9 @@ libiec61883
 libkate
 libmms
 libmodplug
-libreplaygain
 libshout
 libsidplay
 libxml2
-musepack-tools
 sdl
 soundtouch
 sqlite

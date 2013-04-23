@@ -67,6 +67,8 @@ multimedia/faac
 multimedia/ffmpeg
 # Optional: faac, faad2, ffmpeg, lame, libdv, schroedinger, x264
 multimedia/libquicktime
+# Required: libcuefile, libreplaygain
+multimedia/musepack-tools
 
 #########
 # Fonts #
