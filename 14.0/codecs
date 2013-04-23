@@ -1,21 +1,10 @@
 Codecs
 ------
 
-gst-ffmpeg
-gst-plugins-bad
-gst-plugins-good
-gst-plugins-ugly
 gst-python
-libdvdnav
-libiec61883
-libkate
-libmms
-libmodplug
-libshout
 libsidplay
 libxml2
 sdl
-soundtouch
 sqlite
 v4l-utils
 

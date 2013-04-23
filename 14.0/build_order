@@ -27,40 +27,51 @@ d/orc
 ##############
 multimedia/a52dec
 multimedia/celt
-multimedia/libmp4v2
+multimedia/dirac
 multimedia/faad2
-multimedia/libbluray
-multimedia/libdc1394
 multimedia/frei0r
 multimedia/gsm
-multimedia/openjpeg
+multimedia/gst-ffmpeg
 multimedia/lame
-multimedia/OpenAL
-multimedia/opencore-amr
-multimedia/rtmpdump
-multimedia/speex
-multimedia/libvpx
-multimedia/x264
-multimedia/xvidcore
-multimedia/libdca
-multimedia/dirac
-multimedia/twolame
-multimedia/libdv
-multimedia/libmusicbrainz
-multimedia/libmpeg2
-multimedia/libdvdcss
-multimedia/live555
-multimedia/mjpegtools
 multimedia/libavc1394
+multimedia/libbluray
 multimedia/libcdaudio
 multimedia/libcuefile
+multimedia/libdc1394
+multimedia/libdca
+multimedia/libdv
+multimedia/libdvdcss
+multimedia/libdvdnav
+multimedia/libiec61883
+multimedia/libkate
+multimedia/libmms
+multimedia/libmodplug
+multimedia/libmp4v2
+multimedia/libmpeg2
+multimedia/libmusicbrainz
 multimedia/libreplaygain
-# Required: orc
-multimedia/schroedinger
-# Optional: enca
-multimedia/libass
+multimedia/libvpx
+multimedia/live555
+multimedia/mjpegtools
+multimedia/mplayer-codecs
+multimedia/OpenAL
+multimedia/opencore-amr
+multimedia/openjpeg
+multimedia/rtmpdump
+multimedia/soundtouch
+multimedia/speex
+multimedia/twolame
+multimedia/vcdimager
+multimedia/x264
+multimedia/xvidcore
 # Required: libmp4v2
 multimedia/faac
+# Optional: enca
+multimedia/libass
+# Optional: speex
+multimedia/libshout
+# Required: orc
+multimedia/schroedinger
 # Optional: libass, libbluray, celt, libdc1394, faac, frei0r, gsm, openjpeg,
 # lame, OpenAL, opencore-amr, rtmpdump, schroedinger, speex, libvpx, x264,
 # xvidcore
@@ -69,6 +80,16 @@ multimedia/ffmpeg
 multimedia/libquicktime
 # Required: libcuefile, libreplaygain
 multimedia/musepack-tools
+# Optional: orc, libass, libcdaudio, celt, libcd1394, dirac, libdca, libdvdnav,
+# faac, faad2, gsm, libkate, libmms, libmodplug, libmusicbrainz, OpenAL,
+# soundtouch, xvidcore, schroedinger, libvpx, rtmpdump
+multimedia/gst-plugins-bad
+# Optional: orc, a52dec, opencore-amr, lame, libmpeg2, twolame, x264
+multimedia/gst-plugins-ugly
+# Required: ffmpeg
+# Optional: a52dec, faac, lame, libdv, libmpeg2, mjpegtools, libquicktime,
+# x264, xvidcore
+multimedia/transcode
 
 #########
 # Fonts #
