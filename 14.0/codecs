@@ -6,29 +6,19 @@ gst-plugins-bad
 gst-plugins-good
 gst-plugins-ugly
 gst-python
-libavc1394
-libcdaudio
-libcuefile
-libdv
-libdvdcss
 libdvdnav
 libiec61883
 libkate
 libmms
 libmodplug
-libmpeg2
-libmusicbrainz
-libquicktime
 libreplaygain
 libshout
 libsidplay
 libxml2
-mjpegtools
 musepack-tools
 sdl
 soundtouch
 sqlite
-twolame
 v4l-utils
 
 

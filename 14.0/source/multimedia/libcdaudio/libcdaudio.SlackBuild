@@ -1,8 +1,12 @@
 #!/bin/sh
 
-# Slackware build script for libdvdcss
+# Slackware build script for libcdaudio
 
-# Copyright 2006-2011  Robby Workman, Northport, Alabama, USA
+# Written by David Somero <dsomero@hotmail.com>
+# Derived from Slackware's Slackbuilds.
+#
+# Copyright 2008, 2009  Patrick J. Volkerding, Sebeka, Minnesota, USA
+# Copyright 2010  David Somero (dsomero@hotmail.com) Athens, TN, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,19 +28,17 @@
 #
 # Modified by Niki Kovacs <info@microlinux.fr>
 
-PRGNAM=libdvdcss
-VERSION=1.2.11
+PRGNAM=libcdaudio
+VERSION=${VERSION:-0.99.12p2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j2}
 
-# Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
     arm*) ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
        *) ARCH=$( uname -m ) ;;
   esac
 fi
@@ -62,17 +64,17 @@ fi
 
 set -e
 
-if [ ! -r $PRGNAM-$VERSION.tar.bz2 ] ; then
-   wget -c http://download.videolan.org/pub/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2
+if [ ! -r $PRGNAM-$VERSION.tar.gz ] ; then
+   wget -c http://downloads.sourceforge.net/project/$PRGNAM/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.gz
 fi
 
-md5sum -c $PRGNAM-$VERSION.tar.bz2.md5
+md5sum -c $PRGNAM-$VERSION.tar.gz.md5
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvjf $CWD/$PRGNAM-$VERSION.tar.bz2
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
@@ -89,19 +91,19 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --enable-shared=yes \
-  --enable-static=no \
   --build=$ARCH-slackware-linux
 
-make $NUMJOBS 
-make install DESTDIR=$PKG || exit 1
+make $NUMJOBS
+make install DESTDIR=$PKG
+
+sed -i s#/lib#/lib${LIBDIRSUFFIX}#g $PKG/usr/bin/libcdaudio-config
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING INSTALL NEWS README ChangeLog \
+cp -a \
+  AUTHORS COPYING ChangeLog INSTALL NEWS README TODO  \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
@@ -112,6 +114,5 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 # Cleanup
-cd $TMP          
+cd $TMP
 rm -rf $PRGNAM-$VERSION $PKG
-

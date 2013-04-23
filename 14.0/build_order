@@ -44,6 +44,17 @@ multimedia/x264
 multimedia/xvidcore
 multimedia/libdca
 multimedia/dirac
+multimedia/twolame
+multimedia/libdv
+multimedia/libmusicbrainz
+multimedia/libmpeg2
+multimedia/libdvdcss
+multimedia/live555
+multimedia/mjpegtools
+multimedia/libavc1394
+multimedia/libcdaudio
+multimedia/libcuefile
+multimedia/libreplaygain
 # Required: orc
 multimedia/schroedinger
 # Optional: enca
@@ -53,7 +64,9 @@ multimedia/faac
 # Optional: libass, libbluray, celt, libdc1394, faac, frei0r, gsm, openjpeg,
 # lame, OpenAL, opencore-amr, rtmpdump, schroedinger, speex, libvpx, x264,
 # xvidcore
-#multimedia/ffmpeg
+multimedia/ffmpeg
+# Optional: faac, faad2, ffmpeg, lame, libdv, schroedinger, x264
+multimedia/libquicktime
 
 #########
 # Fonts #
