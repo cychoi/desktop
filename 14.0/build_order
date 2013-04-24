@@ -17,6 +17,7 @@ ap/p7zip
 # Optional: recode
 l/enca
 l/libevent
+l/pyxdg
 
 #########
 # GNOME #
@@ -121,9 +122,11 @@ xfce/xfwm4-theme-axe
 xfce/gtk-engines
 xfce/clearlooks-phenix-theme
 xfce/microlinux-wallpapers
+xfce/slack-wallpapers
 xfce/xarchiver
 # Required: xarchiver
 xfce/thunar-archive-plugin
+xfce/xfce4-xkb-plugin
 
 ################
 # Applications #
@@ -140,6 +143,8 @@ xap/smplayer
 xap/transmission
 # Optional: libgnomeprint, libgnomeprintui
 xap/leafpad
+xap/galculator
+xap/catfish
 
 ################
 # Translations #
