@@ -11,17 +11,28 @@ ap/recode
 ap/unrar
 ap/p7zip
 
+###############
+# Development #
+###############
+d/lua
+d/orc
+d/jdk
+d/scons
+
 #####################
 # General libraries #
 #####################
 # Optional: recode
 l/enca
+l/imlib2
 l/libevent
 l/libburn
 l/libisofs
 # Required: libisofs
 l/libisoburn
 l/pyxdg
+# Required: lua, scons
+l/tolua++
 
 #########
 # GNOME #
@@ -35,12 +46,6 @@ gnome/libgnomeprintui
 # Required: libgnomecanvas
 gnome/gdm
 gnome/totem-pl-parser
-
-###############
-# Development #
-###############
-d/orc
-d/jdk
 
 ##############
 # Multimedia # 
@@ -152,6 +157,8 @@ xap/leafpad
 xap/galculator
 xap/catfish
 xap/brasero
+# Optional: imlib2, lua, tolua++
+xap/conky
 
 ################
 # Translations #
