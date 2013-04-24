@@ -11,16 +11,24 @@ ap/recode
 ap/unrar
 ap/p7zip
 
-####################
-# System libraries #
-####################
+#####################
+# General libraries #
+#####################
 # Optional: recode
 l/enca
+
+#########
+# GNOME #
+#########
+gnome/libgnomecanvas
+# Required: libgnomecanvas
+gnome/gdm
 
 ###############
 # Development #
 ###############
 d/orc
+d/jdk
 
 ##############
 # Multimedia # 
@@ -113,3 +121,22 @@ xfce/microlinux-wallpapers
 ################
 xap/mozilla-firefox
 xap/mozilla-thunderbird
+xap/openoffice
+xap/audacious
+# Required: audacious
+xap/audacious-plugins
+xap/MPlayer
+xap/smplayer
+
+################
+# Translations #
+################
+locale/mozilla-firefox-l10n
+locale/mozilla-thunderbird-l10n
+locale/openoffice-langpack
+
+########################
+# Desktop user profile #
+########################
+profile/user-settings-xfce
+

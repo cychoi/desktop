@@ -8,12 +8,12 @@
                    |-----handy-ruler------------------------------------------------------|
 openoffice-langpack: openoffice-langpack (language pack for Open Office)
 openoffice-langpack: 
-openoffice-langpack: Open Office is a full-featured open-source
-openoffice-langpack: office suite that is compatible with all other
-openoffice-langpack: major office software. 
+openoffice-langpack: Open Office is a full-featured open-source office suite that is
+openoffice-langpack: compatible with all other major office software.
 openoffice-langpack: 
-openoffice-langpack: This package installs menus and help documentation
-openoffice-langpack: for Open Office in a language different from en_US
+openoffice-langpack: This package installs menus and help documentation for Open Office
+openoffice-langpack: in a language different from en_US.
+openoffice-langpack: 
 openoffice-langpack: 
 openoffice-langpack: 
 openoffice-langpack: Package created by Niki Kovacs <info@microlinux.fr> 

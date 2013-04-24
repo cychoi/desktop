@@ -29,6 +29,8 @@ VERSION=${VERSION:-0.8.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}
 
+NUMJOBS=${NUMJOBS:--j2}
+
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
@@ -78,7 +80,7 @@ sed -i "/^PREFIX/s/=.*$/=\/usr/;
         s/^QMAKE_OPTS=/QMAKE_OPTS+=/" Makefile
 
 QMAKE_OPTS="QMAKE_CXXFLAGS=\"$SLKCFLAGS\"" \
-make
+make $NUMJOBS
 make DESTDIR=$PKG install
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \

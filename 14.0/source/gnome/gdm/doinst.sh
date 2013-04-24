@@ -11,11 +11,11 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/X11/gdm/custom.conf.new
-config etc/X11/gdm/Xsession.new
-config etc/X11/gdm/Init/Default.new
-config etc/X11/gdm/PreSession/Default.new
-config etc/X11/gdm/PostSession/Default.new
+#config etc/X11/gdm/custom.conf.new
+#config etc/X11/gdm/Xsession.new
+#config etc/X11/gdm/Init/Default.new
+#config etc/X11/gdm/PreSession/Default.new
+#config etc/X11/gdm/PostSession/Default.new
 
 if [ -x /usr/bin/update-desktop-database ]; then
   /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1

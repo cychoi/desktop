@@ -87,7 +87,7 @@ XPREF=$(pkg-config --variable=prefix x11) || true
 
 # So that MPlayer does not report "UNKNOWN" as it's version:
 echo $VERSION > VERSION
-make $NUMJOBS || make || exit 1
+make $NUMJOBS 
 make DESTDIR=$PKG install || exit 1
 
 # Configuration file
