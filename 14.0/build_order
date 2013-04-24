@@ -16,6 +16,7 @@ ap/p7zip
 #####################
 # Optional: recode
 l/enca
+l/libevent
 
 #########
 # GNOME #
@@ -127,6 +128,8 @@ xap/audacious
 xap/audacious-plugins
 xap/MPlayer
 xap/smplayer
+# Required: libevent
+xap/transmission
 
 ################
 # Translations #
