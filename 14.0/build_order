@@ -22,6 +22,11 @@ l/libevent
 # GNOME #
 #########
 gnome/libgnomecanvas
+gnome/libgnomecups
+# Required: libgnomecups
+gnome/libgnomeprint
+# Required: libgnomecanvas, libgnomeprint
+gnome/libgnomeprintui
 # Required: libgnomecanvas
 gnome/gdm
 
@@ -116,6 +121,9 @@ xfce/xfwm4-theme-axe
 xfce/gtk-engines
 xfce/clearlooks-phenix-theme
 xfce/microlinux-wallpapers
+xfce/xarchiver
+# Required: xarchiver
+xfce/thunar-archive-plugin
 
 ################
 # Applications #
@@ -130,6 +138,8 @@ xap/MPlayer
 xap/smplayer
 # Required: libevent
 xap/transmission
+# Optional: libgnomeprint, libgnomeprintui
+xap/leafpad
 
 ################
 # Translations #
