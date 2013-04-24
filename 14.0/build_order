@@ -17,6 +17,10 @@ ap/p7zip
 # Optional: recode
 l/enca
 l/libevent
+l/libburn
+l/libisofs
+# Required: libisofs
+l/libisoburn
 l/pyxdg
 
 #########
@@ -30,6 +34,7 @@ gnome/libgnomeprint
 gnome/libgnomeprintui
 # Required: libgnomecanvas
 gnome/gdm
+gnome/totem-pl-parser
 
 ###############
 # Development #
@@ -145,6 +150,7 @@ xap/transmission
 xap/leafpad
 xap/galculator
 xap/catfish
+xap/brasero
 
 ################
 # Translations #

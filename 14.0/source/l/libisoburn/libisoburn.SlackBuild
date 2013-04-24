@@ -1,13 +1,18 @@
 #!/bin/sh
 
-# Slackware build script for brasero
+# Slackware build script for libisoburn
+# Home Page http://libburnia-project.org/wiki/Libisoburn
 
-# Written by Niki Kovacs <info@microlinux.fr)
+# Written by Larry Hajali <larryhaja[at]gmail[dot]com.
 
-PRGNAM=brasero
-VERSION=${VERSION:-3.4.1}	 
+# New Maintainer - Nishant Limbachia <nishant _AT_ mnspace _DOT_ net> - 11/04/2011
+#
+# Modified by Niki Kovacs <info@microlinux.fr>
+
+PRGNAM="libisoburn"
+VERSION=${VERSION:-1.2.4}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_microlinux}		
+TAG=${TAG:-_microlinux}
 
 NUMJOBS=${NUMJOBS:--j2}
 
@@ -22,9 +27,9 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/microlinux}	
+TMP=${TMP:-/tmp/microlinux}
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}	
+OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -40,20 +45,20 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e 
+set -e
 
-if [ ! -r $PRGNAM-$VERSION.tar.xz ] ; then
-   wget -c ftp://ftp.gnome.org/pub/gnome/sources/$PRGNAM/3.4/$PRGNAM-$VERSION.tar.xz
+if [ ! -r $PRGNAM-$VERSION.tar.gz ] ; then
+   wget -c http://files.libburnia-project.org/releases/$PRGNAM-$VERSION.tar.gz
 fi
 
-md5sum -c $PRGNAM-$VERSION.tar.xz.md5
+md5sum -c $PRGNAM-$VERSION.tar.gz.md5
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.xz || exit 1
-cd $PRGNAM-$VERSION || exit 1
+tar xvzf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -61,49 +66,41 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-patch -p1 < $CWD/brasero-2.26.0-nohelp.patch
-
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc \
-	--localstatedir=/var \
-	--mandir=/usr/man \
-	--enable-playlist \
-	--disable-scrollkeeper \
-	--disable-gtk-doc \
-	--disable-caches \
-	--disable-static \
-	--disable-schemas-compile \
-  --build=$ARCH-slackware-linux \
-	|| exit 1
+  --mandir=/usr/man \
+  --infodir=/usr/info \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --enable-static=no \
+  --enable-debug=no \
+  --disable-dependency-tracking \
+  --enable-libdir-pkgconfig \
+  --build=$ARCH-slackware-linux
 
 make $NUMJOBS 
 make install DESTDIR=$PKG || exit 1
 
-# Screw the useless GNOME documentation :o)
-rm -rf $PKG/usr/share/{gnome,gtk-doc,omf}
-
-# Fix menu entry
-cp -af $CWD/brasero.desktop $PKG/usr/share/applications/
-
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
+rm -f $PKG/usr/info/dir
+gzip -9 $PKG/usr/info/*
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog INSTALL MAINTAINERS NEWS README \
+  AUTHORS COPYING COPYRIGHT INSTALL README TODO \
+  xorriso/{changelog.txt,README_gnu_xorriso} \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
@@ -111,4 +108,3 @@ cd $PKG
 # Cleanup
 cd $TMP
 rm -rf $PRGNAM-$VERSION $PKG
-
