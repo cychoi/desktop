@@ -125,6 +125,9 @@ multimedia/schroedinger
 multimedia/ffmpeg
 # Optional: faac, faad2, ffmpeg, lame, libdv, schroedinger, x264
 multimedia/libquicktime
+# Required: libdv, libquicktime, ffmpeg
+# Optional: frei0r
+multimedia/mlt
 # Required: libcuefile, libreplaygain
 multimedia/musepack-tools
 # Optional: orc, libass, libcdaudio, celt, libcd1394, dirac, libdca, libdvdnav,
@@ -182,6 +185,8 @@ xap/brasero
 xap/conky
 # Required: gc, numpy, gsl, gtkmm, lxml
 xap/inkscape
+# Required: pyxdg, frei0r, mlt, pygoocanvas
+xap/openshot
 
 ################
 # Translations #
