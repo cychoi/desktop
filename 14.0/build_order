@@ -14,7 +14,9 @@ ap/p7zip
 ###############
 # Development #
 ###############
+d/gc
 d/lua
+d/numpy
 d/orc
 d/jdk
 d/scons
@@ -22,14 +24,18 @@ d/scons
 #####################
 # General libraries #
 #####################
+l/BeautifulSoup
 # Optional: recode
 l/enca
+l/gsl
 l/imlib2
 l/libevent
 l/libburn
 l/libisofs
 # Required: libisofs
 l/libisoburn
+# Required: BeautifulSoup
+l/lxml
 l/pyxdg
 # Required: lua, scons
 l/tolua++
@@ -46,6 +52,21 @@ gnome/libgnomeprintui
 # Required: libgnomecanvas
 gnome/gdm
 gnome/totem-pl-parser
+gnome/libsigc++
+# Required: libsigc++
+gnome/glibmm
+# Required: glibmm
+gnome/cairomm
+# Required: cairomm
+gnome/pangomm
+# Required: pangomm
+gnome/atkmm
+gnome/mm-common
+# Required: mm-common, atkmm
+gnome/gtkmm
+gnome/goocanvas
+# Required: goocanvas
+gnome/pygoocanvas
 
 ##############
 # Multimedia # 
@@ -159,6 +180,8 @@ xap/catfish
 xap/brasero
 # Optional: imlib2, lua, tolua++
 xap/conky
+# Required: gc, numpy, gsl, gtkmm, lxml
+xap/inkscape
 
 ################
 # Translations #
