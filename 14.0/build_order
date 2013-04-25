@@ -39,6 +39,7 @@ l/lxml
 l/pyxdg
 # Required: lua, scons
 l/tolua++
+l/wxGTK
 
 #########
 # GNOME #
@@ -159,34 +160,31 @@ xfce/clearlooks-phenix-theme
 xfce/microlinux-wallpapers
 xfce/slack-wallpapers
 xfce/xarchiver
-# Required: xarchiver
 xfce/thunar-archive-plugin
 xfce/xfce4-xkb-plugin
 
 ################
 # Applications #
 ################
+xap/audacious
+xap/audacious-plugins
+xap/audacity
+xap/brasero
+xap/catfish
+xap/conky
+xap/galculator
+xap/gcolor2
+xap/gnote
+xap/inkscape
+xap/leafpad
 xap/mozilla-firefox
 xap/mozilla-thunderbird
-xap/openoffice
-xap/audacious
-# Required: audacious
-xap/audacious-plugins
 xap/MPlayer
-xap/smplayer
-# Required: libevent
-xap/transmission
-# Optional: libgnomeprint, libgnomeprintui
-xap/leafpad
-xap/galculator
-xap/catfish
-xap/brasero
-# Optional: imlib2, lua, tolua++
-xap/conky
-# Required: gc, numpy, gsl, gtkmm, lxml
-xap/inkscape
-# Required: pyxdg, frei0r, mlt, pygoocanvas
+xap/openoffice
 xap/openshot
+xap/simple-scan
+xap/smplayer
+xap/transmission
 
 ################
 # Translations #
