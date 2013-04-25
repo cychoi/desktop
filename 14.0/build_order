@@ -44,6 +44,7 @@ l/wxGTK
 #########
 # GNOME #
 #########
+gnome/dconf
 gnome/libgnomecanvas
 gnome/libgnomecups
 # Required: libgnomecups
@@ -172,6 +173,7 @@ xap/audacity
 xap/brasero
 xap/catfish
 xap/conky
+xap/evince
 xap/galculator
 xap/gcolor2
 xap/gnote
