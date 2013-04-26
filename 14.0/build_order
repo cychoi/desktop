@@ -167,6 +167,7 @@ xfce/xfce4-xkb-plugin
 ################
 # Applications #
 ################
+xap/asunder
 xap/audacious
 xap/audacious-plugins
 xap/audacity
@@ -176,6 +177,8 @@ xap/conky
 xap/evince
 xap/galculator
 xap/gcolor2
+xap/geany
+xap/geany-plugins
 xap/gnote
 xap/inkscape
 xap/leafpad
