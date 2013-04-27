@@ -78,4 +78,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 # Cleanup
-# rm -rf $PKG
+rm -rf $PKG

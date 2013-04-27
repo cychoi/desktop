@@ -28,6 +28,7 @@ d/scons
 #####################
 l/BeautifulSoup
 # Optional: recode
+l/cddb-py
 l/enca
 l/gsl
 l/imlib2
