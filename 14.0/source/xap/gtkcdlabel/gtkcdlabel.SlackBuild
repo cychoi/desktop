@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for cdlabelgen
+# Slackware build script for gtkcdlabel
 
 # Written by Niki Kovacs <info@microlinux.fr>
 #
@@ -23,8 +23,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PRGNAM=cdlabelgen      
-VERSION=${VERSION:-4.3.0}  
+PRGNAM=gtkcdlabel      
+VERSION=${VERSION:-1.15}  
 BUILD=${BUILD:-1}
 TAG=${TAG:-_microlinux}   
 
@@ -43,51 +43,32 @@ TMP=${TMP:-/tmp/microlinux}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}  
 
-if [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "i686" ]; then
-  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-else
-  SLKCFLAGS="-O2"
-  LIBDIRSUFFIX=""
-fi
+ARCH=noarch
 
 set -e 
 
-if [ ! -r $PRGNAM-$VERSION.tgz ] ; then
-   wget -c http://www.aczoom.com/pub/tools/$PRGNAM-$VERSION.tgz
+if [ ! -r $PRGNAM-$VERSION.tar.bz2 ] ; then
+   wget -c http://downloads.sourceforge.net/project/$PRGNAM/$PRGNAM/$VERSION/$PRGNAM-$VERSION.tar.bz2
 fi
 
-md5sum -c $PRGNAM-$VERSION.tgz.md5
+md5sum -c $PRGNAM-$VERSION.tar.bz2.md5
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tgz || exit 1
-cd $PRGNAM-$VERSION || exit 1
-chown -R root:root .
-find . \
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2 -C $PKG
+chown -R root:root $PKG
+find $PKG \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-mkdir -p $PKG/usr/share/man/man1
-make BASE_DIR=$PKG/usr install
-
-mv $PKG/usr/share/man $PKG/usr
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a \
-  ChangeLog INSTALL* README \
+mv $PKG/usr/share/doc/$PRGNAM/* \
   $PKG/usr/doc/$PRGNAM-$VERSION
+rm -rf $PKG/usr/share/doc
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
@@ -97,5 +78,4 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
 
 # Cleanup
-cd $TMP
-rm -rf $PRGNAM-$VERSION $PKG
+# rm -rf $PKG
