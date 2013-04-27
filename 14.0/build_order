@@ -6,10 +6,11 @@ profile/user-settings-console
 ######################
 # Basic system tools #
 ######################
-ap/sbopkg
-ap/recode
-ap/unrar
+ap/cdlabelgen
 ap/p7zip
+ap/recode
+ap/sbopkg
+ap/unrar
 
 ###############
 # Development #
