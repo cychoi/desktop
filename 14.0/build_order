@@ -203,4 +203,5 @@ locale/openoffice-langpack
 # Desktop user profile #
 ########################
 profile/user-settings-xfce
+profile/user-settings-openoffice
 
