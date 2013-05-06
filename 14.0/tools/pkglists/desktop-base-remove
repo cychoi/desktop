@@ -203,9 +203,9 @@ xf86-video-nouveau
 xf86-video-nv
 
 # XAP
-#MPlayer
-#audacious
-#audacious-plugins
+MPlayer
+audacious
+audacious-plugins
 blackbox
 blueman
 electricsheep
@@ -215,8 +215,8 @@ gnuchess
 gnuplot
 gucharmap
 gv
-#mozilla-firefox
-#mozilla-thunderbird
+mozilla-firefox
+mozilla-thunderbird
 pan
 rdesktop
 rxvt
