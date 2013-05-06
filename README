@@ -36,6 +36,7 @@ before by some excellent folks, and here's the place to give them credit:
   * Eric Hameleers for his "impossible" SlackBuild scripts ;o)
   * Daniel de Kok, who worked on the initial scripts back in 2006
   * All the crew from SlackBuilds.org for their really precious work
+  * George Vlahavas from the Salix distribution, a fine Slackware spin-off
   * And of course, Patrick Volkerding for creating the "Finest Linux Anywhere"
 
 
@@ -416,6 +417,17 @@ This builds the french language pack. The german translation can be built like
 this:
 
   # OOLANG=de ./openoffice-langpack.SlackBuild
+
+Convert an existing installation to MLED
+----------------------------------------
+
+Remove the cruft from '/tmp':
+
+  # cd /tmp
+  # rm -rf *
+
+Switch to runlevel 3.
+
 
 
 ------------------------------------------------------------------------------
