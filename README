@@ -2,6 +2,7 @@
 Microlinux Enterprise Desktop (c) Niki Kovacs <info@microlinux.fr>
 =============================
 
+
 This repository contains everything it needs to build and install the
 Slackware-based Microlinux Enterprise Desktop (MLED).
 
@@ -240,9 +241,10 @@ Now update everything:
   # slackpkg update
   # slackpkg upgrade-all
 
-Installer the MPlayer plugin from 'extra/':
+Install the MPlayer plugin from 'extra/':
 
   # slackpkg install mplayerplug-in
+
 
 Clean up the applications menu
 ------------------------------
@@ -256,13 +258,14 @@ Joe-Sixpack-friendly. Run this utility:
 
   /!\ The script replaces many '*.desktop' files in '/usr/share/applications'
   and similar locations by some custom-made menu entry files. For now, they're
-  only localized in english, french and german.
+  only localized in english, french and german, so you may not want to run the
+  script if you use another language.
 
 
 Finishing up
 ------------
 
-We're almost done. Here's what's left to be done.
+We're almost there. Here's what's left to be done.
 
   1. Configure the X.org server. 
 
@@ -272,6 +275,7 @@ We're almost done. Here's what's left to be done.
 
 Reboot and enjoy your shiny new Microlinux Enterprise Desktop.
 
+                                    Niki Kovacs, Tue May  7 18:22:13 CEST 2013
 
 ------------------------------------------------------------------------------
 # vim: syntax=txt
