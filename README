@@ -104,30 +104,75 @@ SELECT DEFAULT WINDOW MANAGER FOR X : 'xinitrc.xfce'
   -> This choice is of no consequence, since user profiles already contain the
   relevant '~/.xinitrc' file.
 
+Finish the base Slackware installation and reboot.
 
-First reboot
-------------
 
-Fetch scripts and configuration files:
-  
-  # cd /usr/share
-  # svn co svn://svn.tuxfamily.org/svnroot/microlinux/slackware
+Download the build scripts
+--------------------------
 
-On 32-bit Slackware :
+Grab the full set of MLED build scripts from Github:
 
-  # cd slackware/14.0/slackware
+  # cd
+  # git clone https://github.com/kikinovak/desktop
 
-On Slackware64 :
+Before going any further, two points have to be taken care of.
 
-  # cd slackware/14.0/slackware64
 
-Fetch all Microlinux Enterprise Desktop packages (roughly 500 MB):
+A word about NVidia cards
+-------------------------
 
-  # ./get-MLED.sh
+I've had some bad freezes with the 'nouveau' drivers on various cards, so I
+decided not to include these - as well as the legacy 'nv' drivers - in the
+basic package set. I recommend downloading and building the proprietary
+'nvidia' drivers from http://www.nvidia.com. 
 
-Install all MLED packages in one go:
+If you don't want to use the 'nvidia' driver, you can still grab the
+'xf86-video-nouveau' or 'xf86-video-nv' packages manually.
 
-  # upgradepkg --reinstall --install-new */*.txz
+That being said, don't install the proprietary 'nvidia' driver yet. Its
+presence will lead to build errors for some packages like wxGTK, Firefox ESR
+and Thunderbird ESR.
+
+Eventually, you can always uninstall it like this:
+
+  # ./NVIDIA-Linux-x86-XXX.YY.run --uninstall
+ 
+In that case, reinstall the 'mesa' package.
+
+
+Java Development Kit
+--------------------
+
+Before launching the build, go to 'http://www.oracle.com' and download the JDK
+tarball for your architecture:
+
+  * jdk-7uXX-linux-i586.tar.gz for 32-bit Slackware
+  * jdk-7uXX-linux-x64.tar.gz for 64-bit Slackware
+
+Move the tarball to source/d/jdk/.
+
+
+Start the build
+---------------
+
+  # ./MLED.SlackBuild
+
+This master build takes care of: 
+
+  1. downloading all sources;
+
+  2. building packages in the right order;
+
+  3. installing packages as they are built;
+
+  4. storing them in the right location, depending on your architecture.
+
+Depending on hardware and bandwidth, count a few hours for the whole process to
+complete.
+
+
+Set locales
+-----------
 
 Now you'll probably have to adjust your environment variables in
 '/etc/profile.d/lang.sh'. Default variables are set to fr_FR.UTF8, since MLED's
@@ -145,24 +190,27 @@ export LANG=en_US.utf8
 export LC_COLLATE=en_US.utf8
 --8<--------------------------------------------------------------------------
 
-Reboot.
 
+Multilib stuff 
+--------------
 
-Further configuration
----------------------
-
-On Slackware64, now's the time to install the 32-bit compatibility layer
-provided by Eric Hameleers : 
+On Slackware64, you may want to add applications like VirtualBox.  In that
+case, you have to install the 32-bit compatibility layer provided by Eric
+Hameleers : 
   
-  # cd ../multilib/
-  # get-all.sh
+  # cd multilib/
+  # get-multilib.sh
   # cd 14.0/
   # upgradepkg --reinstall --install-new *.t?z
   # cd slackware64-compat32/
   # upgradepkg --install-new *-compat32/*.t?z
 
-Configure 'slackpkg'. Edit '/etc/slackpkg/mirrors' and choose one and only one
-mirror according to your geographical location, for example:
+
+Configure 'slackpkg'
+--------------------
+
+Edit '/etc/slackpkg/mirrors' and choose one and only one mirror according to
+your geographical location, for example:
 
 --8<---------- /etc/slackpkg/mirrors -----------------------------------------
 ...
@@ -196,129 +244,33 @@ Installer the MPlayer plugin from 'extra/':
 
   # slackpkg install mplayerplug-in
 
-The 'user-settings-desktop' package features - among other things - the
-'cleanmenu' utility, a small Bash script to clean up various desktop menu
-entries and make them Joe-Sixpack-friendly. Run this utility:
+Clean up the applications menu
+------------------------------
 
-  # cleanmenu
+The 'tools/' directory features - among other things - the 'cleanmenu' utility,
+a small Bash script to clean up various desktop menu entries and make them
+Joe-Sixpack-friendly. Run this utility:
 
-Configure the X.org server. 
+  # cd tools/
+  # ./cleanmenu
 
-  -> A note on NVidia cards. I've had some bad freezes with the 'nouveau'
-  drivers on various cards, so I decided not to include these - as well as the
-  legacy 'nv' drivers - in the basic package set. I recommend downloading and
-  building the proprietary 'nvidia' drivers from http://www.nvidia.com. If you
-  don't want to use the 'nvidia' driver, you can still grab the
-  'xf86-video-nouveau' or 'xf86-video-nv' packages using 'slackpkg'.
+  /!\ The script replaces many '*.desktop' files in '/usr/share/applications'
+  and similar locations by some custom-made menu entry files. For now, they're
+  only localized in english, french and german.
 
-The Microlinux Enterprise Desktop uses the SLiM login manager. Edit
-'/etc/rc.d/rc.4' to launch SLiM on startup:
 
---8<---------- /etc/rc.d/rc.4 ------------------------------------------------
-# Tell the viewers what's going to happen...
-echo "Starting up X11 session manager..."
+Finishing up
+------------
 
-# Try to use SLiM login manager.  This comes first, because if SLiM is 
-# installed, then the user probably wants to use it by default:
-if [ -x /usr/bin/slim ]; then
-  exec /usr/bin/slim
-fi
-...
---8<--------------------------------------------------------------------------
+We're almost done. Here's what's left to be done.
 
-Define one or more normal users for the system:
+  1. Configure the X.org server. 
 
-  # adduser
+  2. Define one or more normal users for the system.
 
-Switch to default runlevel 4:
-
---8<---------- /etc/inittab --------------------------------------------------
-...
-# Default runlevel. (Do not set to 0 or 6)
-id:4:initdefault:
-...
---8<--------------------------------------------------------------------------
+  3. Switch to default runlevel 4.
 
 Reboot and enjoy your shiny new Microlinux Enterprise Desktop.
-
-##############################################################################
-
-
-Build MLED from source
-----------------------
-
-Installing MLED from binary packages as described above is the preferred
-method. However, you can build MLED from source if you're inclined to do so.
-Here's a few instructions.
-
-  NVidia caveat
-  -------------
-
-If you have an NVidia card and you are using the proprietary driver, some
-builds like wxGTK, Firefox and Thunderbird will fail. Before launching the
-build, uninstall the proprietary driver: 
-
-  # ./NVIDIA-Linux-x86-304.64.run --uninstall
- 
-Then, reinstall the 'mesa' package:
-
-  # slackpkg reinstall mesa
-
-  JDK tarball
-  -----------
-
-Before launching the build, go to http://www.oracle.com and download the JDK
-tarball for your architecture:
-
-  * jdk-7uXX-linux-i586.tar.gz for 32-bit Slackware
-  * jdk-7uXX-linux-x64.tar.gz for 64-bit Slackware
-
-Move the tarball to source/d/jdk/.
-
-  Start the build
-  ---------------
-
-Launch the master SlackBuild as root:
-
-# ./MLED.SlackBuild
-
-This master build takes care of: 
-
-  1. downloading all sources;
-
-  2. building packages in the right order;
-
-  3. installing packages as they are built;
-
-  4. storing them in the right location.
-
-Depending on hardware and bandwidth, count a few hours for the whole process to
-complete.
-
-  Add some translations manually
-  ------------------------------
-
-Translations for Open Office are not included in the master build and have to
-be built separately:
-
-  # cd source/locale/openoffice-langpack
-  # ./openoffice-langpack.SlackBuild
-
-This builds the french language pack. The german translation can be built like
-this:
-
-  # OOLANG=de ./openoffice-langpack.SlackBuild
-
-Convert an existing installation to MLED
-----------------------------------------
-
-Remove the cruft from '/tmp':
-
-  # cd /tmp
-  # rm -rf *
-
-Switch to runlevel 3.
-
 
 
 ------------------------------------------------------------------------------
