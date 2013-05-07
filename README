@@ -2,32 +2,34 @@
 Microlinux Enterprise Desktop (c) Niki Kovacs <info@microlinux.fr>
 =============================
 
-*** Thu Mar 28 08:42:02 CET 2013: work in progress. I'll keep you posted ***
-
 This repository contains everything it needs to build and install the
 Slackware-based Microlinux Enterprise Desktop (MLED).
 
-The Microlinux Enterprise Desktop is a full-blown production desktop based on
-Slackware Linux and Xfce. It is currently used by various small town halls,
-public libraries and schools in South France. 
 
-MLED is not some derivative distribution. It consists of a collection of 150
-custom packages installed on top of an unaltered Slackware base system. If
+Introduction
+------------
+
+The Microlinux Enterprise Desktop is a full-blown production desktop based on
+the latest stable Slackware Linux release and Xfce. It is currently used by
+various small town halls, public libraries and schools in South France. 
+
+MLED is *not* some derivative distribution. It consists of a collection of 136
+custom packages installed on top of an unaltered Slackware base system. It
 focuses on the Xfce desktop environment, with many enhancements. 
 
-A selection of best-of-the-breed and carefully integrated applications are
-featured, one per task. Elegant and sober artwork fit for use in a corporate
-environment is also included. A complete selection of codecs, plugins and fonts
-provide a seamless desktop experience. Intuitive and user-friendly default
-settings and menu entries are provided. 
+A selection of carefully integrated applications are featured, one per task.
+Elegant and sober artwork fit for use in a corporate environment is also
+included. A complete selection of codecs, plugins and fonts provide a seamless
+desktop experience. Intuitive and user-friendly default settings and menu
+entries are provided. 
 
-If you want to know what MLED looks like, take a look at the screenshots:
+The Microlinux Enterprise Desktop runs reasonably fast on ten-year-old
+hardware. A battered first-generation Pentium-IV with 512 MB RAM and a 10 GB
+hard disk will be perfectly sufficient for the job.
 
-  * http://www.microlinux.fr/desktop_linux.php.
 
-Follow the detailed installation instructions below to install it on your PC.
-
-MLED runs reasonably fast on ten-year-old hardware. 
+Credits
+-------
 
 Much of this work is really just an assembly of the great work that's been done
 before by some excellent folks, and here's the place to give them credit:
@@ -40,161 +42,50 @@ before by some excellent folks, and here's the place to give them credit:
   * And of course, Patrick Volkerding for creating the "Finest Linux Anywhere"
 
 
-Q: What applications are included?
-
-A: *** Internet apps ***
-
-  · Mozilla Firefox ESR
-  · Mozilla Thunderbird ESR
-  · GFTP
-  · Pidgin
-  · Transmission
-
-  *** Office apps ***
-
-  · Apache Open Office 
-  · Evince
-  · Scribus
-
-  *** Graphics apps ***
-
-  · GIMP
-  · Inkscape
-  · Simple Scan
-  · Geeqie
-  · Gcolor2
-
-  *** Multimedia apps ***
-   
-  · Audacious
-  · SMPlayer
-  · Audacity
-  · Openshot
-  · Asunder
-  · DVD::Rip
-
-  *** Utilities ***
-
-  · Brasero
-  · Galculator
-  · Leafpad
-  · Catfish
-  · Xarchiver
-  · Gnote
-
-  *** Development ***
-
-  · Geany
-
-Q: Do you have any screenshots?
-
-A: Sure. Take a look at http://www.microlinux.fr/desktop_linux.php.
-
-
-Credits
--------
-
-
 Installation
 ------------
+
+The following step-by-step instructions assume you already know how to install
+a vanilla Slackware desktop. You will need a working internet connection.
 
 The Microlinux Enterprise Desktop installs on top of a carefully selected
 Slackware base. In order to avoid painstakingly picking each package, the
 recommended method is to use the provided set of tagfiles. 
 
-Grab the set of tagfiles:
+Boot the Slackware installation DVD (or the first CD). Select your keyboard
+layout, login as root and partition your hard disk, but don't start the
+installer yet.
 
-  $ wget -r -np -nH --cut-dirs=2 --reject="index.html*" \
-    http://www.microlinux.fr/slackware/14.0/tagfiles/
+Bring up your network interface, for example:
 
-  -> Don't forget the trailing slash '/'!
-
-Alternatively, you can fetch the tagfiles from SVN:
-
-  $ svn co svn://svn.tuxfamily.org/svnroot/microlinux/slackware/14.0/tagfiles
-
-Here's what you get:
-
-  $ tree tagfiles
-  tagfiles/
-  |-- a
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- ap
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- d
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- e
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- f
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- k
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- kde
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- kdei
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- l
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- n
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- t
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- tcl
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- x
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- xap
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  |-- xfce
-  | |-- PACKAGE_DESCRIPTIONS.txt
-  | `-- tagfile
-  `-- y
-  |-- PACKAGE_DESCRIPTIONS.txt
-  `-- tagfile
-  
-  16 directories, 32 files
- 
-Copy the 'tagfiles' directory and its contents to a USB memory stick.
-
-Boot from a Slackware installation medium (CD-Rom, DVD, whatever). 
-
-Once you've logged in, and before launching the Slackware installer, create a
-mountpoint for the USB memory stick:
-
-  # mkdir /disk
-
-Mount the device:
-
-  # mount /dev/sdXY /disk
+  root@slackware:/# dhcpcd eth0
 
 The Slackware installation environment already sports an empty '/tag' directory
-for your tagfiles, so we will copy them to that location:
+for a set of tagfiles, so let's use it.
 
-  # cp -Rv /disk/path/to/tagfiles/* /tag/
+  root@slackware:/# cd /tag
 
-Unmount the memory disk:
+Grab the set of tagfiles from the server:
 
-  # cd
-  # umount /disk
+  root@slackware:/tag# wget http://www.microlinux.fr/tagfiles/MLED-14.0.tar.gz
 
-Partition the disk and launch the Slackware installer as in a vanilla
-installation:
+Unpack the downloaded archive:
 
-  # setup
+  root@slackware:/tag# tar xvzf MLED-14.0.tar.gz
+
+Clean up:
+
+  root@slackware:/tag# rm -f MLED-14.0.tar.gz README
+
+Your '/tag' directory should now contain a series of directories corresponding
+to the Slackware package sets:
+
+  root@slackware:/tag# ls
+  a/ ap/ d/ e/ f/ k/ kde/ kdei/ l/ n/ t/ tcl/ x/ xap/ xfce/ y/
+
+Now start the Slackware installer:
+
+  root@slackware:/tag# setup
  
 PACKAGE SERIES SELECTION: accept the default package selection, since the
 tagfiles will override this and take care of selecting each package anyway.
