@@ -27,8 +27,8 @@ d/scons
 # General libraries #
 #####################
 l/BeautifulSoup
-# Optional: recode
 l/cddb-py
+# Optional: recode
 l/enca
 l/gsl
 l/imlib2

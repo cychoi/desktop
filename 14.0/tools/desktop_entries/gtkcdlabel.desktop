@@ -10,3 +10,4 @@ Type=Application
 Terminal=false
 Name=Gtkcdlabel
 Categories=Graphics;
+StartupNotify=true
