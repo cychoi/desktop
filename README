@@ -168,8 +168,10 @@ This master build takes care of:
 
   4. storing them in the right location, depending on your architecture.
 
-Depending on hardware and bandwidth, count a few hours for the whole process to
-complete.
+  /!\ Some applications like Firefox ESR and Thunderbird ESR can take ages to
+  build on old hardware. Whenever possible, complete the whole build on a fast
+  machine and then install the resulting binaries on your less performing
+  hardware.
 
 
 Set locales
