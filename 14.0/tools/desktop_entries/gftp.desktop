@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Simple FTP Client
-Name[de]=Einfaches FTP-Programm
-Name[fr]=Client FTP simple
+Name=FTP Client
+Name[de]=FTP-Programm
+Name[fr]=Client FTP
 Comment=GFTP
 Exec=gftp %u
 Terminal=false
